@@ -757,7 +757,7 @@ const App = {
         const playlists = MusicLibrary.getCustomPlaylists();
         const pl = playlists.find(p => p.id === pid);
         if (!pl) {
-            this.navigate('myplaylist');
+            location.hash = '/myplaylist';
             return;
         }
 
@@ -775,7 +775,7 @@ const App = {
                 <img src="${thumb}" alt="${pl.name}" style="${pl.songs.length === 0 ? 'opacity:0.3; object-fit:contain; padding:20%;' : ''}" />
             </div>
             <div class="artist-details">
-                <div class="artist-type" style="cursor:pointer;" onclick="App.navigate('myplaylist')">< Quay lại Playlist của tôi</div>
+                <div class="artist-type" style="cursor:pointer;" onclick="location.hash='/myplaylist'">< Quay lại Playlist của tôi</div>
                 <h1 style="margin-top:10px;">${pl.name}</h1>
                 <div class="artist-followers" style="margin-bottom:15px;">Playlist tự tạo • ${totalSongs} bài hát</div>
                 <div style="display:flex; gap:10px;">

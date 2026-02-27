@@ -198,5 +198,5 @@ D:\Music2.0\obj\Debug\net9.0\Music2.0.genruntimeconfig.cache
 D:\Music2.0\obj\Debug\net9.0\ref\Music2.0.dll
 D:\Music2.0\obj\Debug\net9.0\compressed\oe3slb2pz1-86m4lq60dl.gz
 D:\Music2.0\obj\Debug\net9.0\compressed\w7ie5scxna-1kop483n06.gz
-D:\Music2.0\obj\Debug\net9.0\compressed\8m9poblnfm-a58r91wsgm.gz
 D:\Music2.0\obj\Debug\net9.0\compressed\s53pmbjq69-qi768yaw6g.gz
+D:\Music2.0\obj\Debug\net9.0\compressed\8m9poblnfm-y8jm8kz1un.gz
