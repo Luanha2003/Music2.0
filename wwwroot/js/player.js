@@ -11,6 +11,9 @@ const Player = {
     repeat: 0, // 0=off, 1=all, 2=one
     volume: 0.7,
     currentSong: null,
+    currentSong: null,
+    currentLyrics: [],
+    _activeLyricIndex: -1,
     _progressDragging: false,
     _volumeDragging: false,
 
@@ -35,6 +38,14 @@ const Player = {
             volumeBar: document.getElementById('volume-bar'),
             volumeFill: document.getElementById('volume-fill'),
             volumeBtn: document.getElementById('volume-btn'),
+            btnLyrics: document.getElementById('btn-lyrics'),
+            lyricsModal: document.getElementById('lyrics-modal'),
+            btnCloseLyrics: document.getElementById('btn-close-lyrics'),
+            lyricsOverlay: document.getElementById('lyrics-close'),
+            lyricsImg: document.getElementById('lyrics-img'),
+            lyricsTitle: document.getElementById('lyrics-title'),
+            lyricsArtist: document.getElementById('lyrics-artist'),
+            lyricsText: document.getElementById('lyrics-text')
         };
 
         this.audio.volume = this.volume;
@@ -139,12 +150,32 @@ const Player = {
             if (e.code === 'ArrowRight' && e.ctrlKey) this.next();
             if (e.code === 'ArrowLeft' && e.ctrlKey) this.prev();
         });
+
+        // Lyrics Modal
+        this.els.btnLyrics.addEventListener('click', () => {
+            this.showLyricsModal();
+        });
+
+        this.els.btnCloseLyrics.addEventListener('click', () => {
+            this.els.lyricsModal.classList.remove('show');
+        });
+
+        this.els.lyricsOverlay.addEventListener('click', () => {
+            this.els.lyricsModal.classList.remove('show');
+        });
     },
 
     // ── Play a song ──
     async playSong(song, queue = null, index = -1) {
         if (!song || !song.encodeId) return;
         this.currentSong = song;
+        this.currentLyrics = [];
+        this._activeLyricIndex = -1;
+
+        // Cập nhật lại lyrics nếu modal đang mở
+        if (this.els.lyricsModal.classList.contains('show')) {
+            this.showLyricsModal();
+        }
 
         if (queue) {
             this.queue = queue;
@@ -235,6 +266,48 @@ const Player = {
             this.els.progressFill.style.width = pct + '%';
             this.els.currentTime.textContent = this._formatTime(currentTime);
         }
+
+        // Đồng bộ lời bài hát (karaoke 🎤)
+        this._syncLyrics(currentTime);
+    },
+
+    _syncLyrics(currentTime) {
+        if (!this.els.lyricsModal.classList.contains('show') || !this.currentLyrics || this.currentLyrics.length === 0) return;
+
+        const timeMs = currentTime * 1000;
+        let activeIndex = -1;
+
+        // Tìm câu đang hát
+        for (let i = 0; i < this.currentLyrics.length; i++) {
+            if (timeMs >= this.currentLyrics[i].startTime) {
+                activeIndex = i;
+            } else {
+                break; // Lời hát đã được sắp xếp tăng dần, nên chỉ cần break
+            }
+        }
+
+        if (activeIndex !== -1 && this._activeLyricIndex !== activeIndex) {
+            // Xoá active cũ
+            const oldActive = document.querySelector('.lyrics-right p.active');
+            if (oldActive) oldActive.classList.remove('active');
+
+            // Set active mới
+            const newActive = document.getElementById(`lyric-line-${activeIndex}`);
+            if (newActive) {
+                newActive.classList.add('active');
+                this._activeLyricIndex = activeIndex;
+
+                // Cuộn tự động
+                const container = this.els.lyricsText;
+                const offsetTop = newActive.offsetTop;
+                const scrollPos = offsetTop - (container.clientHeight / 2) + (newActive.clientHeight / 2);
+
+                container.scrollTo({
+                    top: Math.max(0, scrollPos),
+                    behavior: 'smooth'
+                });
+            }
+        }
     },
 
     _onLoaded() {
@@ -287,5 +360,55 @@ const Player = {
         const m = Math.floor(s / 60);
         const sec = Math.floor(s % 60);
         return `${m}:${sec.toString().padStart(2, '0')}`;
+    },
+
+    // ── Lyrics ──
+    async showLyricsModal() {
+        if (!this.currentSong) {
+            App.showToast('Chưa phát bài hát nào!');
+            return;
+        }
+
+        this.els.lyricsModal.classList.add('show');
+        this.els.lyricsImg.src = this.currentSong.thumbnailM || this.currentSong.thumbnail || '/music.png';
+        this.els.lyricsTitle.textContent = this.currentSong.title || 'Không rõ';
+        this.els.lyricsArtist.textContent = this.currentSong.artistsNames || 'Không rõ';
+        this.els.lyricsText.innerHTML = '<div class="loading-spinner"><div class="spinner"></div></div>';
+
+        try {
+            const res = await fetch(`/api/lyrics/${this.currentSong.encodeId}`);
+            const json = await res.json();
+
+            if (json.err === 0 && json.data && json.data.sentences) {
+                let html = '';
+                this.currentLyrics = [];
+
+                json.data.sentences.forEach((s, index) => {
+                    const line = s.words.map(w => w.data).join(' ');
+                    const startTime = s.words[0].startTime;
+
+                    html += `<p id="lyric-line-${index}" onclick="Player.seekToTime(${startTime})">${line}</p>`;
+                    this.currentLyrics.push({
+                        startTime: startTime,
+                        index: index
+                    });
+                });
+
+                this.els.lyricsText.innerHTML = html || '<div class="lyrics-placeholder">Không có lời bài hát</div>';
+                this._activeLyricIndex = -1; // Reset active
+            } else {
+                this.els.lyricsText.innerHTML = '<div class="lyrics-placeholder">Không có lời bài hát</div>';
+            }
+        } catch (err) {
+            console.error('Failed to get lyrics:', err);
+            this.els.lyricsText.innerHTML = '<div class="lyrics-placeholder">Lỗi khi tải lời bài hát</div>';
+        }
+    },
+
+    seekToTime(timeMs) {
+        if (this.audio && this.audio.duration) {
+            this.audio.currentTime = timeMs / 1000;
+            this.audio.play();
+        }
     }
 };

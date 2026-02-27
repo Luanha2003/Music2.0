@@ -91,7 +91,7 @@
             <div class="player-controls">
                 <div class="player-buttons">
                     <button class="player-btn" id="btn-shuffle" title="Trộn bài">
-                        <svg viewBox="0 0 24 24"><path d="M14.83 13.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13zM14.83 6.59L20 11.76V6.26h-5.5l2.04 2.04-1.71-1.71zm-4.24 1.82L7.46 5.29 5.29 7.46l3.12 3.12 1.41-1.41-.47-.47.47.47 1.41 1.41-1.41 1.41L4 6.59V6.26h5.5L7.46 8.3l3.13 3.11z"/><path d="M3.5 18.49l7.08-7.08 1.41 1.41-7.08 7.08zM20 18.5l-2.04-2.04-3.13 3.13-1.41-1.41 3.13-3.13-2.05-2.05H20z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M10.59 9.17L5.41 4 4 5.41l5.17 5.17 1.42-1.41zM14.5 4l2.04 2.04L4 18.59 5.41 20 17.96 7.46 20 9.5V4h-5.5zm.33 9.41l-1.41 1.41 3.13 3.13L14.5 20H20v-5.5l-2.04 2.04-3.13-3.13z"/></svg>
                     </button>
                     <button class="player-btn" id="btn-prev" title="Bài trước">
                         <svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6l8.5 6V6z"/></svg>
@@ -128,6 +128,26 @@
                         <div class="volume-slider-fill" id="volume-fill" style="width: 70%"></div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Lyrics Modal -->
+    <div class="lyrics-modal" id="lyrics-modal">
+        <div class="lyrics-overlay" id="lyrics-close"></div>
+        <div class="lyrics-content fade-in">
+            <button class="btn-close-lyrics" id="btn-close-lyrics">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+            </button>
+            <div class="lyrics-left">
+                <div class="lyrics-thumb">
+                    <img id="lyrics-img" src="/music.png" alt="" />
+                </div>
+                <h2 id="lyrics-title">Chưa có bài hát</h2>
+                <h3 id="lyrics-artist">---</h3>
+            </div>
+            <div class="lyrics-right" id="lyrics-text">
+                <div style="color:var(--text-muted); text-align:center; margin-top:50px;">Nhấp phát nhạc để xem lời bài hát</div>
             </div>
         </div>
     </div>
