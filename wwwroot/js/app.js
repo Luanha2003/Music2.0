@@ -51,13 +51,16 @@ const App = {
             case 'newrelease': this.loadNewRelease(); break;
             case 'top100': this.loadTop100(); break;
             case 'library': this.loadLibrary(); break;
+            case 'myplaylist': this.loadMyPlaylist(); break;
             case 'artist': this.loadArtist(params.alias); break;
             case 'playlist': this.loadPlaylist(params.id); break;
         }
-    },
-
-    _handleHash() {
+    }, _handleHash() {
         const hash = location.hash.slice(1);
+        if (hash.startsWith('/myplaylist/')) {
+            this.navigate('myplaylist', { id: hash.replace('/myplaylist/', '') });
+            return;
+        }
         if (hash.startsWith('/artist/')) {
             this.navigate('artist', { alias: hash.replace('/artist/', '') });
         } else if (hash.startsWith('/playlist/')) {
@@ -66,6 +69,8 @@ const App = {
             this.navigate('search', { q: decodeURIComponent(hash.replace('/search/', '')) });
         } else if (hash === '/library') {
             this.navigate('library');
+        } else if (hash === '/myplaylist') {
+            this.navigate('myplaylist');
         } else if (hash === '/chart') {
             this.navigate('chart');
         } else if (hash === '/top100') {
@@ -588,42 +593,143 @@ const App = {
     },
 
     // ═══════════════════════════════════
-    // THƯ VIỆN CÁ NHÂN
+    // BÀI HÁT YÊU THÍCH (LIBRARY CŨ)
     // ═══════════════════════════════════
     loadLibrary() {
         const likedSongs = MusicLibrary.getLikedSongs();
-        const savedAlbums = MusicLibrary.getSavedAlbums();
 
         let html = '<div class="fade-in">';
-        html += '<div class="section-header"><h2 class="section-title" style="font-size:2rem">Thư viện của tôi</h2></div>';
+        html += `
+            <div class="section-header" style="flex-wrap: wrap; gap: 10px;">
+                <h2 class="section-title" style="font-size:2rem">Bài hát yêu thích</h2>
+                <!-- Thanh Search (lọc bài hát yêu thích) -->
+                ${likedSongs.length > 0 ? `
+                <div style="flex:1; min-width:200px; display:flex; justify-content:flex-end;">
+                    <div class="search-box" style="margin: 0; max-width: 300px;">
+                        <input type="text" id="filter-liked-input" placeholder="Tìm trong bài hát yêu thích..." oninput="App._filterLikedSongs()" style="padding: 10px 16px; border-radius: 20px; border: none; background: rgba(255,255,255,0.1); color: #fff; width: 100%; outline: none;" />
+                    </div>
+                </div>` : ''}
+            </div>
+        `;
 
-        if (likedSongs.length === 0 && savedAlbums.length === 0) {
+        if (likedSongs.length === 0) {
             html += `<div class="library-empty">
                 <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
-                <h2>Thư viện trống</h2>
+                <h2>Chưa có bài hát nào</h2>
                 <p>Hãy bấm nút ❤️ trên thanh phát nhạc để thêm bài hát yêu thích vào đây!</p>
             </div>`;
         } else {
             // Liked Songs
-            if (likedSongs.length > 0) {
-                html += `<div class="section">
-                    <div class="section-header">
-                        <h2 class="section-title">Bài hát yêu thích (${likedSongs.length})</h2>
-                        <button class="btn-play-album" onclick="App._playLikedSongs()" style="padding:8px 20px;font-size:0.82rem">
-                            <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Phát tất cả
-                        </button>
-                    </div>
-                    <div class="song-list stagger">`;
-                likedSongs.forEach((song, i) => {
-                    html += this._renderSongItem(song, i + 1, likedSongs);
+            html += `<div class="section">
+                <div class="section-header">
+                    <h2 class="section-title" style="font-size:1rem; color:var(--text-muted)">Tổng ${likedSongs.length} bài</h2>
+                    <button class="btn-play-album" onclick="App._playLikedSongs()" style="padding:8px 20px;font-size:0.82rem">
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Phát tất cả
+                    </button>
+                </div>
+                <div class="song-list stagger" id="liked-songs-container">`;
+            likedSongs.forEach((song, i) => {
+                html += this._renderSongItem(song, i + 1, likedSongs);
+            });
+            html += '</div></div>';
+        }
+
+        html += '</div>';
+        this.pageContent.innerHTML = html;
+        this._bindSongClicks();
+        this._bindCardClicks();
+    },
+
+    _filterLikedSongs() {
+        const query = document.getElementById('filter-liked-input')?.value.toLowerCase().trim() || '';
+        const container = document.getElementById('liked-songs-container');
+        if (!container) return;
+
+        const items = container.querySelectorAll('.song-item');
+        let count = 0;
+        items.forEach(item => {
+            const nameEl = item.querySelector('.song-name');
+            const artistEl = item.querySelector('.song-artist');
+            const name = nameEl ? nameEl.textContent.toLowerCase() : '';
+            const artist = artistEl ? artistEl.textContent.toLowerCase() : '';
+
+            if (name.includes(query) || artist.includes(query)) {
+                item.style.display = 'grid'; // because song-item uses grid
+                count++;
+                // update index visually
+                const indexEl = item.querySelector('.song-index-num');
+                if (indexEl) indexEl.textContent = count;
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    },
+
+    _playLikedSongs() {
+        const songs = MusicLibrary.getLikedSongs();
+        if (songs.length > 0) {
+            Player.playSong(songs[0], songs, 0);
+        }
+    },
+
+    // ═══════════════════════════════════
+    // PLAYLIST CỦA TÔI
+    // ═══════════════════════════════════
+    loadMyPlaylist() {
+        if (location.hash.startsWith('#/myplaylist/') && location.hash.length > '#/myplaylist/'.length) {
+            // Đây là xem chi tiết 1 playlist tự tạo, sẽ được catch ở hash nhưng phòng hờ
+            const pid = location.hash.replace('#/myplaylist/', '');
+            this.loadMyPlaylistDetail(pid);
+            return;
+        }
+
+        const playlists = MusicLibrary.getCustomPlaylists();
+        const savedAlbums = MusicLibrary.getSavedAlbums();
+
+        let html = '<div class="fade-in">';
+        html += `
+            <div class="section-header" style="flex-wrap: wrap; gap: 10px; align-items: center;">
+                <h2 class="section-title" style="font-size:2rem; margin:0;">Playlist & Album</h2>
+                <button class="btn-play-album" onclick="App._createNewPlaylist()" style="padding:8px 20px;font-size:0.82rem; margin-left:auto;">
+                    <svg viewBox="0 0 24 24" style="margin-right:6px;"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg> Tạo Playlist mới
+                </button>
+            </div>
+        `;
+
+        if (playlists.length === 0 && savedAlbums.length === 0) {
+            html += `<div class="library-empty">
+                <svg viewBox="0 0 24 24"><path d="M4 10h12v2H4zm0-4h12v2H4zm0 8h8v2H4zm10 0v6l5-3z"/></svg>
+                <h2>Tạo playlist đầu tiên của bạn</h2>
+                <p>Nhấp vào nút Tạo Playlist mới ở trên để bắt đầu.</p>
+            </div>`;
+        } else {
+            // Custom Playlists
+            if (playlists.length > 0) {
+                html += `<div class="section" style="margin-top:20px;">
+                    <div class="section-header"><h2 class="section-title">Playlist bạn tạo (${playlists.length})</h2></div>
+                    <div class="card-grid stagger">`;
+                playlists.forEach(pl => {
+                    const thumb = pl.songs.length > 0 && pl.songs[0].thumbnailM ? pl.songs[0].thumbnailM : '/music.png';
+                    html += `
+                        <div class="card" onclick="location.hash='/myplaylist/${pl.id}'">
+                            <div class="card-img" style="background:#333;">
+                                <img src="${thumb}" alt="${pl.name}" loading="lazy" style="${pl.songs.length === 0 ? 'opacity:0.3; padding:30%;' : ''}" />
+                                <div class="card-play-btn">
+                                    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                </div>
+                            </div>
+                            <div class="card-title" title="${pl.name}">${pl.name}</div>
+                            <div class="card-subtitle">${pl.songs.length} bài hát</div>
+                        </div>
+                    `;
                 });
                 html += '</div></div>';
             }
 
-            // Saved Albums
+            // Saved Albums (Zingmp3 real ones)
             if (savedAlbums.length > 0) {
                 html += `<div class="section">
-                    <div class="section-header"><h2 class="section-title">Album đã lưu (${savedAlbums.length})</h2></div>
+                    <div class="section-header"><h2 class="section-title">Album đã theo dõi (${savedAlbums.length})</h2></div>
                     <div class="card-grid stagger">`;
                 savedAlbums.forEach(album => {
                     html += this._renderCard(album);
@@ -634,14 +740,86 @@ const App = {
 
         html += '</div>';
         this.pageContent.innerHTML = html;
-        this._bindSongClicks();
         this._bindCardClicks();
     },
 
-    _playLikedSongs() {
-        const songs = MusicLibrary.getLikedSongs();
-        if (songs.length > 0) {
-            Player.playSong(songs[0], songs, 0);
+    _createNewPlaylist() {
+        const name = prompt("Nhập tên Playlist mới:");
+        if (name && name.trim()) {
+            MusicLibrary.createPlaylist(name.trim());
+            App.showToast('✅ Đã tạo playlist mới');
+            this.loadMyPlaylist(); // Reload
+        }
+    },
+
+    loadMyPlaylistDetail(pid) {
+        // Find playlist
+        const playlists = MusicLibrary.getCustomPlaylists();
+        const pl = playlists.find(p => p.id === pid);
+        if (!pl) {
+            this.navigate('myplaylist');
+            return;
+        }
+
+        // Add dynamic current PID for _playPlaylist if needed
+        this._currentCustomPlaylistSongs = pl.songs;
+
+        const thumb = pl.songs.length > 0 && pl.songs[0].thumbnailM ? pl.songs[0].thumbnailM : '/music.png';
+        const totalSongs = pl.songs.length;
+
+        let html = '<div class="fade-in">';
+
+        // Header
+        html += `<div class="artist-header">
+            <div class="artist-avatar" style="border-radius: 8px;">
+                <img src="${thumb}" alt="${pl.name}" style="${pl.songs.length === 0 ? 'opacity:0.3; object-fit:contain; padding:20%;' : ''}" />
+            </div>
+            <div class="artist-details">
+                <div class="artist-type" style="cursor:pointer;" onclick="App.navigate('myplaylist')">< Quay lại Playlist của tôi</div>
+                <h1 style="margin-top:10px;">${pl.name}</h1>
+                <div class="artist-followers" style="margin-bottom:15px;">Playlist tự tạo • ${totalSongs} bài hát</div>
+                <div style="display:flex; gap:10px;">
+                    <button class="btn-play-album" onclick="App._playCustomPlaylist()" ${totalSongs === 0 ? 'disabled style="opacity:0.5"' : ''}>
+                        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> PHÁT
+                    </button>
+                    <button class="btn-play-album" onclick="App._deleteCustomPlaylist('${pl.id}')" style="background: rgba(255,255,255,0.1); color: var(--text-primary);">
+                        <svg viewBox="0 0 24 24" style="fill: currentColor; width: 18px; margin-right: 4px;"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg> Xóa
+                    </button>
+                </div>
+            </div>
+        </div>`;
+
+        // Songs
+        if (totalSongs === 0) {
+            html += `<div style="text-align:center; margin-top:50px; color:var(--text-muted)">
+                <svg viewBox="0 0 24 24" style="width:48px; fill:currentColor; margin-bottom:10px;"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>
+                <h3>Playlist trống</h3>
+                <p>Hãy tìm nhạc và nhấm vào ••• trên bài hát để thêm vào playlist này.</p>
+            </div>`;
+        } else {
+            html += `<div class="section"><div class="song-list stagger">`;
+            pl.songs.forEach((song, i) => {
+                html += this._renderSongItem(song, i + 1, pl.songs);
+            });
+            html += `</div></div>`;
+        }
+
+        html += '</div>';
+        this.pageContent.innerHTML = html;
+        this._bindSongClicks();
+    },
+
+    _playCustomPlaylist() {
+        if (this._currentCustomPlaylistSongs && this._currentCustomPlaylistSongs.length > 0) {
+            Player.playSong(this._currentCustomPlaylistSongs[0], this._currentCustomPlaylistSongs, 0);
+        }
+    },
+
+    _deleteCustomPlaylist(pid) {
+        if (confirm("Bạn có chắc chắn muốn xóa playlist này?")) {
+            MusicLibrary.deletePlaylist(pid);
+            App.showToast("Đã xóa playlist");
+            window.location.hash = '/myplaylist';
         }
     },
 
@@ -692,6 +870,9 @@ const App = {
             <button class="song-like-btn ${liked ? 'liked' : ''}" data-id="${id}" onclick="event.stopPropagation();App._toggleLikeSong(this, '${id}')">
                 <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
             </button>
+            <button class="song-more-btn" onclick="event.stopPropagation();App._showSongMenu(event, this)">
+                <svg viewBox="0 0 24 24"><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
+            </button>
         </div>`;
     },
 
@@ -714,6 +895,9 @@ const App = {
             <div class="song-duration">${duration}</div>
             <button class="song-like-btn ${liked ? 'liked' : ''}" data-id="${id}" onclick="event.stopPropagation();App._toggleLikeSong(this, '${id}')">
                 <svg viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg>
+            </button>
+            <button class="song-more-btn" onclick="event.stopPropagation();App._showSongMenu(event, this)">
+                <svg viewBox="0 0 24 24"><path d="M6 10c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm12 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2zm-6 0c-1.1 0-2 .9-2 2s.9 2 2 2 2-.9 2-2-.9-2-2-2z"/></svg>
             </button>
         </div>`;
     },
@@ -759,6 +943,107 @@ const App = {
             }
             App.showToast(liked ? 'Đã thêm vào Yêu thích ❤️' : 'Đã xóa khỏi Yêu thích');
         } catch { }
+    },
+
+    _showSongMenu(e, btn) {
+        // Prevent default and stop propagation
+        e.preventDefault();
+        e.stopPropagation();
+
+        // Xóa menu cũ
+        const oldMenu = document.getElementById('custom-song-menu');
+        if (oldMenu) oldMenu.remove();
+
+        // Lấy thông tin bài hát
+        const songEl = btn.closest('.song-item');
+        if (!songEl) return;
+        const songData = JSON.parse(songEl.dataset.song);
+        const encodeId = songData.encodeId;
+
+        // Render playlist submenu items
+        const playlists = MusicLibrary.getCustomPlaylists();
+        const playlistItemsHtml = playlists.length === 0
+            ? '<div style="padding: 10px 14px; color:var(--text-muted)">Chưa có playlist nào. Hãy tạo một playlist mới.</div>'
+            : playlists.map(p => `
+                <div class="cm-item add-to-playlist-action" data-pid="${p.id}">
+                    ${p.name}
+                </div>
+            `).join('');
+
+        // Kiểm tra xem bài hát này hiện tại đang nằm trong một playlist không?
+        const currentPlaylistMatch = window.location.hash.match(/#\/myplaylist\/([^/]+)/);
+        const currentPid = currentPlaylistMatch ? currentPlaylistMatch[1] : null;
+
+        const removeBtnHtml = currentPid
+            ? `<div class="cm-divider"></div>
+               <div class="cm-item remove-from-playlist-action" data-pid="${currentPid}">
+                   <svg viewBox="0 0 24 24"><path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zm2.46-7.12l1.41-1.41L12 12.59l2.12-2.12 1.41 1.41L13.41 14l2.12 2.12-1.41 1.41L12 15.41l-2.12 2.12-1.41-1.41L10.59 14l-2.13-2.12zM15.5 4l-1-1h-5l-1 1H5v2h14V4z"/></svg> 
+                   Xóa khỏi playlist này
+               </div>`
+            : '';
+
+        // Tạo phần tử menu
+        const menu = document.createElement('div');
+        menu.id = 'custom-song-menu';
+        menu.className = 'custom-context-menu';
+
+        // Lấy tọa độ click
+        const rect = btn.getBoundingClientRect();
+        const top = rect.bottom + window.scrollY;
+        const left = rect.right - 220 + window.scrollX; // Canh phải
+
+        menu.style.top = top + 'px';
+        menu.style.left = left + 'px';
+
+        menu.innerHTML = `
+            <div class="cm-submenu">
+                <div class="cm-item">
+                    <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg> Add to playlist
+                    <svg viewBox="0 0 24 24" style="margin-left:auto; width:16px;height:16px"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+                </div>
+                <div class="cm-submenu-content">
+                    ${playlistItemsHtml}
+                </div>
+            </div>
+            ${removeBtnHtml}
+        `;
+
+        document.body.appendChild(menu);
+
+        // Events cho menu vừa tạo
+        menu.querySelectorAll('.add-to-playlist-action').forEach(item => {
+            item.addEventListener('click', () => {
+                const pid = item.dataset.pid;
+                const result = MusicLibrary.addSongToPlaylist(pid, songData);
+                if (result) App.showToast('✅ Đã thêm bài hát vào playlist');
+                else App.showToast('Bài hát đã tồn tại trong playlist này');
+                menu.remove();
+            });
+        });
+
+        const removeBtn = menu.querySelector('.remove-from-playlist-action');
+        if (removeBtn) {
+            removeBtn.addEventListener('click', () => {
+                const pid = removeBtn.dataset.pid;
+                MusicLibrary.removeSongFromPlaylist(pid, encodeId);
+                App.showToast('🗑️ Đã xóa khỏi playlist');
+                menu.remove();
+                if (App.currentPage === 'myplaylist') {
+                    App.loadMyPlaylistDetail(pid); // reload nếu đang ở trong trang chi tiết playlist
+                }
+            });
+        }
+
+        // Tự đóng menu khi click ra ngoài
+        setTimeout(() => {
+            const closeMenu = (evt) => {
+                if (!menu.contains(evt.target)) {
+                    menu.remove();
+                    document.removeEventListener('click', closeMenu);
+                }
+            };
+            document.addEventListener('click', closeMenu);
+        }, 0);
     },
 
     // ── Utility ──

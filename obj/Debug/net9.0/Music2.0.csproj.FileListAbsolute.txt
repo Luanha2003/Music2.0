@@ -120,8 +120,6 @@ D:\Music2.0\obj\Debug\net9.0\scopedcss\Views\Shared\_Layout.cshtml.rz.scp.css
 D:\Music2.0\obj\Debug\net9.0\scopedcss\bundle\Music2.0.styles.css
 D:\Music2.0\obj\Debug\net9.0\scopedcss\projectbundle\Music2.0.bundle.scp.css
 D:\Music2.0\obj\Debug\net9.0\compressed\eneo9ubcdk-61n19gt1b8.gz
-D:\Music2.0\obj\Debug\net9.0\compressed\8m9poblnfm-1dwn8ba8ly.gz
-D:\Music2.0\obj\Debug\net9.0\compressed\s53pmbjq69-5btyls38ar.gz
 D:\Music2.0\obj\Debug\net9.0\compressed\vrksikocz7-xtxxf3hu2r.gz
 D:\Music2.0\obj\Debug\net9.0\compressed\sbm7uwz6mt-t1cqhe9u97.gz
 D:\Music2.0\obj\Debug\net9.0\compressed\ypk26o6dlo-c2jlpeoesf.gz
@@ -198,11 +196,7 @@ D:\Music2.0\obj\Debug\net9.0\refint\Music2.0.dll
 D:\Music2.0\obj\Debug\net9.0\Music2.0.pdb
 D:\Music2.0\obj\Debug\net9.0\Music2.0.genruntimeconfig.cache
 D:\Music2.0\obj\Debug\net9.0\ref\Music2.0.dll
-D:\Music2.0\bin\Debug\net9.0\home_payload.json
-D:\Music2.0\bin\Debug\net9.0\lyricspayload.json
-D:\Music2.0\bin\Debug\net9.0\sample_home.json
-D:\Music2.0\bin\Debug\net9.0\sample_lyrics.json
-D:\Music2.0\bin\Debug\net9.0\sample_song.json
-D:\Music2.0\bin\Debug\net9.0\song_payload.json
-D:\Music2.0\obj\Debug\net9.0\compressed\w7ie5scxna-zjfhsipgt1.gz
-D:\Music2.0\obj\Debug\net9.0\compressed\oe3slb2pz1-pg28xs9mu5.gz
+D:\Music2.0\obj\Debug\net9.0\compressed\oe3slb2pz1-86m4lq60dl.gz
+D:\Music2.0\obj\Debug\net9.0\compressed\w7ie5scxna-1kop483n06.gz
+D:\Music2.0\obj\Debug\net9.0\compressed\8m9poblnfm-a58r91wsgm.gz
+D:\Music2.0\obj\Debug\net9.0\compressed\s53pmbjq69-qi768yaw6g.gz

@@ -6,6 +6,7 @@ const MusicLibrary = {
     KEYS: {
         SONGS: 'music2_fav_songs',
         ALBUMS: 'music2_saved_albums',
+        PLAYLISTS: 'music2_custom_playlists',
     },
 
     _getList(key) {
@@ -76,6 +77,61 @@ const MusicLibrary = {
 
     getSavedAlbums() {
         return this._getList(this.KEYS.ALBUMS);
+    },
+
+    // ── Custom Playlists ──
+    getCustomPlaylists() {
+        return this._getList(this.KEYS.PLAYLISTS);
+    },
+
+    createPlaylist(name) {
+        if (!name) return false;
+        const list = this.getCustomPlaylists();
+        const newPlaylist = {
+            id: 'pl_' + Date.now(),
+            name: name,
+            songs: []
+        };
+        list.push(newPlaylist);
+        this._saveList(this.KEYS.PLAYLISTS, list);
+        return newPlaylist;
+    },
+
+    addSongToPlaylist(playlistId, song) {
+        const list = this.getCustomPlaylists();
+        const playlist = list.find(p => p.id === playlistId);
+        if (!playlist) return false;
+
+        // Tránh trùng bài
+        if (!playlist.songs.find(s => s.encodeId === song.encodeId)) {
+            playlist.songs.push({
+                encodeId: song.encodeId,
+                title: song.title,
+                artistsNames: song.artistsNames,
+                thumbnailM: song.thumbnailM || song.thumbnail,
+                duration: song.duration,
+            });
+            this._saveList(this.KEYS.PLAYLISTS, list);
+            return true;
+        }
+        return false;
+    },
+
+    removeSongFromPlaylist(playlistId, encodeId) {
+        const list = this.getCustomPlaylists();
+        const playlist = list.find(p => p.id === playlistId);
+        if (playlist) {
+            playlist.songs = playlist.songs.filter(s => s.encodeId !== encodeId);
+            this._saveList(this.KEYS.PLAYLISTS, list);
+            return true;
+        }
+        return false;
+    },
+
+    deletePlaylist(playlistId) {
+        let list = this.getCustomPlaylists();
+        list = list.filter(p => p.id !== playlistId);
+        this._saveList(this.KEYS.PLAYLISTS, list);
     },
 
     // ── Stats ──

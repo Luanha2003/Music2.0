@@ -11,7 +11,6 @@ const Player = {
     repeat: 0, // 0=off, 1=all, 2=one
     volume: 0.7,
     currentSong: null,
-    currentSong: null,
     currentLyrics: [],
     _activeLyricIndex: -1,
     _progressDragging: false,
@@ -163,6 +162,21 @@ const Player = {
         this.els.lyricsOverlay.addEventListener('click', () => {
             this.els.lyricsModal.classList.remove('show');
         });
+
+        // Click tên bài hát → mở lyrics
+        this.els.songName.addEventListener('click', () => {
+            if (!this.currentSong) return;
+            this.showLyricsModal();
+        });
+
+        // Click tên ca sĩ → tới trang artist
+        this.els.songArtist.addEventListener('click', () => {
+            if (!this.currentSong || !this.currentSong.artists || !this.currentSong.artists.length) return;
+            const alias = this.currentSong.artists[0].alias || this.currentSong.artists[0].link || '';
+            if (alias) {
+                App.navigate('artist', { alias: alias.replace('/nghe-si/', '').replace('/', '') });
+            }
+        });
     },
 
     // ── Play a song ──
@@ -186,6 +200,14 @@ const Player = {
         this.els.thumbImg.src = song.thumbnailM || song.thumbnail || '/music.png';
         this.els.songName.textContent = song.title || 'Không rõ';
         this.els.songArtist.textContent = song.artistsNames || 'Không rõ';
+
+        // Highlight artist nếu có trang
+        if (song.artists && song.artists.length) {
+            this.els.songArtist.style.textDecoration = 'underline dotted';
+            this.els.songArtist.title = 'Xem trang ' + (song.artists[0].name || '');
+        } else {
+            this.els.songArtist.style.textDecoration = 'none';
+        }
         this.els.likeBtn.classList.toggle('liked', MusicLibrary.isSongLiked(song.encodeId));
         this.els.thumb.classList.remove('spinning');
 
