@@ -103,7 +103,7 @@ img {
 .app-container {
     display: grid;
     grid-template-columns: var(--sidebar-width) 1fr;
-    grid-template-rows: 1fr var(--player-height);
+    grid-template-rows: minmax(0, 1fr) var(--player-height);
     height: 100vh;
     width: 100vw;
 }
@@ -179,9 +179,12 @@ img {
     --sidebar-width: 80px;
 }
 
+.app-container.collapsed .sidebar {
+    overflow: visible !important;
+}
+
 .app-container.collapsed .sidebar-title {
-    opacity: 0;
-    pointer-events: none;
+    display: none;
 }
 
 .app-container.collapsed #sidebar-icon {
@@ -189,7 +192,16 @@ img {
 }
 
 .app-container.collapsed .sidebar-logo {
-    padding-left: 20px;
+    padding: 24px 0 20px;
+    justify-content: center;
+}
+
+.app-container.collapsed .btn-pc-menu {
+    display: flex !important;
+    min-width: 40px;
+    height: 40px;
+    justify-content: center;
+    align-items: center;
 }
 
 .app-container.collapsed .nav-section-title {
@@ -197,9 +209,46 @@ img {
 }
 
 .app-container.collapsed .nav-item {
-    font-size: 0;
     padding: 11px 0;
     justify-content: center;
+    overflow: visible;
+    /* Override hidden to show tooltip */
+}
+
+.app-container.collapsed .nav-item::before {
+    left: -12px;
+}
+
+.app-container.collapsed .nav-item .nav-text {
+    display: none;
+}
+
+/* ── Tooltips for Collapsed Sidebar ── */
+.app-container.collapsed .nav-item::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    left: calc(100% + 15px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--bg-elevated);
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, left 0.2s;
+    box-shadow: var(--shadow-card);
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.app-container.collapsed .nav-item:hover::after {
+    opacity: 1;
+    visibility: visible;
+    left: calc(100% + 10px);
 }
 
 .sidebar-nav {
@@ -798,7 +847,8 @@ img {
     background: var(--bg-player);
     border-top: 1px solid var(--border);
     display: grid;
-    grid-template-columns: 280px 1fr 280px;
+    grid-template-columns: calc(var(--sidebar-width) + 40px) 1fr calc(var(--sidebar-width) + 40px);
+    transition: grid-template-columns 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     align-items: center;
     padding: 0 20px;
     position: relative;
@@ -1982,10 +2032,23 @@ img {
     }
 
     .lyrics-left {
-        padding: 24px;
+        padding: 40px 24px 24px;
         flex-direction: row;
         gap: 16px;
         align-items: center;
+    }
+
+    .btn-close-lyrics {
+        top: 12px;
+        right: 12px;
+        width: 32px;
+        height: 32px;
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-close-lyrics svg {
+        width: 16px;
+        height: 16px;
     }
 
     .lyrics-thumb {
