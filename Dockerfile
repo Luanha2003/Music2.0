@@ -16,4 +16,4 @@ COPY --from=build /app/out .
 ENV ASPNETCORE_URLS=http://+:10000
 EXPOSE 10000
 
-ENTRYPOINT ["dotnet", "MovieWeb.dll"]
+ENTRYPOINT ["dotnet", "Music2.0.dll"]
