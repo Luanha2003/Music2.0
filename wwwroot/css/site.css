@@ -142,6 +142,64 @@ img {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     letter-spacing: -0.5px;
+    white-space: nowrap;
+    opacity: 1;
+    transition: opacity 0.2s;
+}
+
+.btn-pc-menu {
+    background: transparent;
+    border: none;
+    color: var(--text-primary);
+    cursor: pointer;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 6px;
+    padding: 6px;
+    transition: background 0.2s;
+}
+
+.btn-pc-menu:hover {
+    background: var(--bg-glass-hover);
+}
+
+.btn-pc-menu svg {
+    width: 28px;
+    height: 28px;
+}
+
+/* ── Collapsed Sidebar ── */
+.app-container {
+    transition: grid-template-columns 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.app-container.collapsed {
+    --sidebar-width: 80px;
+}
+
+.app-container.collapsed .sidebar-title {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.app-container.collapsed #sidebar-icon {
+    display: none;
+}
+
+.app-container.collapsed .sidebar-logo {
+    padding-left: 20px;
+}
+
+.app-container.collapsed .nav-section-title {
+    opacity: 0;
+}
+
+.app-container.collapsed .nav-item {
+    font-size: 0;
+    padding: 11px 0;
+    justify-content: center;
 }
 
 .sidebar-nav {
@@ -1973,6 +2031,29 @@ img {
     }
 }
 
+/* ── Mobile Sidebar Overlays (hidden desktop) ── */
+.mobile-header {
+    display: none;
+}
+
+.sidebar-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar-overlay.show {
+    opacity: 1;
+}
+
 /* ── Responsive ── */
 @media (max-width: 900px) {
     .app-container {
@@ -1980,22 +2061,116 @@ img {
     }
 
     .sidebar {
+        display: block;
+        position: fixed;
+        left: -100%;
+        top: 0;
+        bottom: 0;
+        width: 260px;
+        z-index: 1001;
+        /* Above overlay */
+        transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        padding-bottom: 90px;
+        box-shadow: 4px 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .sidebar.open {
+        left: 0;
+    }
+
+    .sidebar-overlay.show {
+        display: block;
+    }
+
+    .mobile-header {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 15px;
+        padding: 12px 20px;
+        background: rgba(26, 26, 30, 0.8);
+        backdrop-filter: blur(10px);
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        border-bottom: 1px solid var(--border);
+    }
+
+    .btn-pc-menu {
         display: none;
     }
 
+    .btn-mobile-menu {
+        background: transparent;
+        border: none;
+        color: var(--text-primary);
+        cursor: pointer;
+        padding: 5px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+    }
+
+    .btn-mobile-menu:active {
+        background: rgba(255, 255, 255, 0.1);
+    }
+
+    .btn-mobile-menu svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .mobile-logo {
+        font-size: 1.2rem;
+        font-weight: 800;
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    /* Fix overlapping player bar on mobile */
     .player-bar {
-        grid-template-columns: 1fr 1fr;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px;
     }
 
-    .player-extra {
-        display: none;
+    .player-info {
+        flex: 1;
+        min-width: 0;
+        max-width: 50vw;
+        /* Prevent pushing controls out */
     }
 
     .player-controls {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        position: static;
+        transform: none;
+        flex-shrink: 0;
+    }
+
+    /* Hide shuffle and repeat on narrow screens to save space */
+    #btn-shuffle,
+    #btn-repeat {
+        display: none !important;
+    }
+
+    .player-btn svg {
+        width: 24px;
+        height: 24px;
+    }
+
+    #btn-play svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .player-extra {
+        display: flex;
+        align-items: center;
+        gap: 5px;
     }
 
     .player-progress {
@@ -2045,4 +2220,46 @@ img {
         width: 180px;
         height: 180px;
     }
+
+    /* Video toggle buttons mobile layout */
+    .volume-control,
+    #btn-lyrics,
+    #btn-queue {
+        display: none;
+        /* Hide volume, queue, lyrics to save space */
+    }
+
+    #hidden-yt-audio.show-pip {
+        bottom: 90px;
+        width: calc(100vw - 20px);
+        height: calc((100vw - 20px) * 9 / 16);
+        right: 10px;
+        left: 10px;
+        border-radius: 8px;
+    }
+}
+
+/* ── YouTube Hidden Player Global ── */
+#hidden-yt-audio {
+    position: fixed;
+    width: 1px;
+    height: 1px;
+    left: -9999px;
+    opacity: 0;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    pointer-events: none;
+}
+
+#hidden-yt-audio.show-pip {
+    opacity: 1;
+    left: auto;
+    right: 20px;
+    bottom: 100px;
+    width: 350px;
+    height: 197px;
+    /* 16:9 */
+    pointer-events: auto;
 }

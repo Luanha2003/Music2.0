@@ -50,11 +50,74 @@ const Player = {
             queuePanel: document.getElementById('queue-panel'),
             queueClose: document.getElementById('queue-close'),
             btnCloseQueue: document.getElementById('btn-close-queue'),
-            queueList: document.getElementById('queue-list')
+            queueList: document.getElementById('queue-list'),
+            btnVideo: document.getElementById('btn-video')
         };
 
         this.audio.volume = this.volume;
+        this.isYoutube = false;
+
+        // Auto create hidden div for YT API
+        const ytDiv = document.createElement('div');
+        ytDiv.id = 'hidden-yt-audio';
+        document.body.appendChild(ytDiv);
+
+        this._initYTFallback();
+
+        // Update progress for YT Player
+        setInterval(() => {
+            if (this.isYoutube && this.isPlaying && this.ytPlayer && this.ytPlayer.getCurrentTime) {
+                const currentTime = this.ytPlayer.getCurrentTime();
+                const duration = this.ytPlayer.getDuration();
+                if (duration) {
+                    const pct = (currentTime / duration) * 100;
+                    this.els.progressFill.style.width = pct + '%';
+                    this.els.currentTime.textContent = this._formatTime(currentTime);
+                    this.els.duration.textContent = this._formatTime(duration);
+                    this._syncLyrics(currentTime);
+                }
+            }
+        }, 500);
+
         this._bindEvents();
+    },
+
+    _initYTFallback() {
+        const tryInit = () => {
+            if (window.YT && window.YT.Player) {
+                this.ytPlayer = new YT.Player('hidden-yt-audio', {
+                    height: '1',
+                    width: '1',
+                    videoId: '',
+                    playerVars: { 'autoplay': 1, 'controls': 0, 'playsinline': 1 },
+                    events: {
+                        'onReady': () => {
+                            if (this.ytPlayer.setVolume) this.ytPlayer.setVolume(this.volume * 100);
+                        },
+                        'onStateChange': (e) => {
+                            if (!this.isYoutube) return;
+                            if (e.data === 0) { // YT.PlayerState.ENDED
+                                this._onEnded();
+                            } else if (e.data === 1) { // PLAYING
+                                this._setPlayingUI(true);
+                                this.els.duration.textContent = this._formatTime(this.ytPlayer.getDuration());
+                            } else if (e.data === 2) { // PAUSED
+                                this._setPlayingUI(false);
+                            }
+                        },
+                        'onError': (e) => {
+                            if (this.isYoutube) {
+                                App.showToast('Lỗi phát YouTube. Đang thử bài tiếp...');
+                                setTimeout(() => this.next(), 1500);
+                            }
+                        }
+                    }
+                });
+            } else {
+                setTimeout(tryInit, 500);
+            }
+        };
+        tryInit();
     },
 
     _bindEvents() {
@@ -138,9 +201,11 @@ const Player = {
             if (this.audio.volume > 0) {
                 this._prevVolume = this.audio.volume;
                 this.audio.volume = 0;
+                if (this.ytPlayer && this.ytPlayer.setVolume) this.ytPlayer.setVolume(0);
                 this.els.volumeFill.style.width = '0%';
             } else {
                 this.audio.volume = this._prevVolume || 0.7;
+                if (this.ytPlayer && this.ytPlayer.setVolume) this.ytPlayer.setVolume(this.audio.volume * 100);
                 this.els.volumeFill.style.width = (this.audio.volume * 100) + '%';
             }
         });
@@ -155,6 +220,22 @@ const Player = {
             if (e.code === 'ArrowRight' && e.ctrlKey) this.next();
             if (e.code === 'ArrowLeft' && e.ctrlKey) this.prev();
         });
+
+        // Video Popup Toggle
+        if (this.els.btnVideo) {
+            this.els.btnVideo.addEventListener('click', () => {
+                const ytDiv = document.getElementById('hidden-yt-audio');
+                if (!ytDiv.classList.contains('show-pip')) {
+                    // Show video popup
+                    ytDiv.classList.add('show-pip');
+                    this.els.btnVideo.classList.add('active');
+                } else {
+                    // Hide
+                    ytDiv.classList.remove('show-pip');
+                    this.els.btnVideo.classList.remove('active');
+                }
+            });
+        }
 
         // Lyrics Modal
         this.els.btnLyrics.addEventListener('click', () => {
@@ -246,20 +327,55 @@ const Player = {
             const res = await fetch(`/api/song/${song.encodeId}`);
             const json = await res.json();
 
-            if (json.err === 0 && json.data) {
+            this.isYoutube = false;
+            if (this.els.btnVideo) this.els.btnVideo.style.display = 'none';
+
+            if (this.ytPlayer && this.ytPlayer.stopVideo) {
+                this.ytPlayer.stopVideo();
+            }
+
+            if (json.err === 0 && json.data && (json.data['128'] || json.data['320'] || json.data.default)) {
                 const streamUrl = json.data['128'] || json.data['320'] || json.data.default;
-                if (streamUrl) {
-                    this.audio.src = streamUrl;
-                    this.audio.play();
-                    this.els.thumb.classList.add('spinning');
-                    document.title = `${song.title} - ${song.artistsNames} | Music2.0`;
-                } else {
-                    App.showToast('Bài hát này yêu cầu VIP. Đang chuyển bài...');
+                this.audio.src = streamUrl;
+                this.audio.play();
+                this.els.thumb.classList.add('spinning');
+                document.title = `${song.title} - ${song.artistsNames} | Music2.0`;
+            } else {
+                App.showToast('Đang tìm phiên bản YouTube...');
+                this.isYoutube = true;
+                this.audio.pause();
+
+                try {
+                    let artistStr = song.artistsNames || '';
+                    if (artistStr.toLowerCase().includes('nhiều nghệ sĩ') || artistStr.toLowerCase().includes('various artists')) {
+                        if (song.artists && song.artists.length > 0) {
+                            artistStr = song.artists.map(a => a.name).join(' ');
+                        } else {
+                            artistStr = '';
+                        }
+                    }
+                    const query = encodeURIComponent(song.title + (artistStr ? ' ' + artistStr : '') + ' official audio');
+                    const ytRes = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&type=video&videoCategoryId=10&q=${query}&key=${ytapi_key}`);
+                    const ytJson = await ytRes.json();
+                    if (ytJson.items && ytJson.items.length > 0) {
+                        const videoId = ytJson.items[0].id.videoId;
+                        if (this.ytPlayer && this.ytPlayer.loadVideoById) {
+                            this.ytPlayer.loadVideoById(videoId);
+                            document.title = `${song.title} - ${song.artistsNames} | Music2.0 (YT)`;
+                            this.els.thumb.classList.add('spinning');
+                            if (this.els.btnVideo) this.els.btnVideo.style.display = 'block';
+                        } else {
+                            App.showToast('Trình duyệt chưa tải xong Youtube Player');
+                            setTimeout(() => this.next(), 1500);
+                        }
+                    } else {
+                        App.showToast('Không tìm bài hát!');
+                        setTimeout(() => this.next(), 1500);
+                    }
+                } catch (e) {
+                    App.showToast('Lỗi tìm kiếm YouTube');
                     setTimeout(() => this.next(), 1500);
                 }
-            } else {
-                App.showToast('Không thể lấy link nhạc');
-                setTimeout(() => this.next(), 1500);
             }
         } catch (err) {
             console.error('Failed to get song:', err);
@@ -269,10 +385,21 @@ const Player = {
 
     togglePlay() {
         if (!this.currentSong) return;
-        if (this.audio.paused) {
-            this.audio.play();
+        if (this.isYoutube && this.ytPlayer && this.ytPlayer.getPlayerState) {
+            const state = this.ytPlayer.getPlayerState();
+            if (state === 1) { // Playing
+                this.ytPlayer.pauseVideo();
+                this._setPlayingUI(false);
+            } else {
+                this.ytPlayer.playVideo();
+                this._setPlayingUI(true);
+            }
         } else {
-            this.audio.pause();
+            if (this.audio.paused) {
+                this.audio.play();
+            } else {
+                this.audio.pause();
+            }
         }
     },
 
@@ -291,8 +418,13 @@ const Player = {
     prev() {
         if (this.queue.length === 0) return;
         // If > 3 seconds, restart. Otherwise previous.
-        if (this.audio.currentTime > 3) {
-            this.audio.currentTime = 0;
+        const currentTime = (this.isYoutube && this.ytPlayer && this.ytPlayer.getCurrentTime) ? this.ytPlayer.getCurrentTime() : this.audio.currentTime;
+        if (currentTime > 3) {
+            if (this.isYoutube) {
+                if (this.ytPlayer && this.ytPlayer.seekTo) this.ytPlayer.seekTo(0, true);
+            } else {
+                this.audio.currentTime = 0;
+            }
             return;
         }
         let idx;
@@ -390,8 +522,13 @@ const Player = {
         let pct = (e.clientX - rect.left) / rect.width;
         pct = Math.max(0, Math.min(1, pct));
         this.els.progressFill.style.width = (pct * 100) + '%';
-        if (this.audio.duration) {
-            this.audio.currentTime = pct * this.audio.duration;
+        if (this.isYoutube && this.ytPlayer && this.ytPlayer.getDuration) {
+            const duration = this.ytPlayer.getDuration();
+            if (duration) this.ytPlayer.seekTo(pct * duration, true);
+        } else {
+            if (this.audio.duration) {
+                this.audio.currentTime = pct * this.audio.duration;
+            }
         }
     },
 
@@ -400,6 +537,7 @@ const Player = {
         let pct = (e.clientX - rect.left) / rect.width;
         pct = Math.max(0, Math.min(1, pct));
         this.audio.volume = pct;
+        if (this.ytPlayer && this.ytPlayer.setVolume) this.ytPlayer.setVolume(pct * 100);
         this.els.volumeFill.style.width = (pct * 100) + '%';
     },
 
@@ -454,14 +592,20 @@ const Player = {
     },
 
     seekToTime(timeMs) {
-        if (this.audio && this.audio.duration) {
-            this.audio.currentTime = timeMs / 1000;
-            this.audio.play();
+        const timeSecs = timeMs / 1000;
+        if (this.isYoutube && this.ytPlayer && this.ytPlayer.seekTo) {
+            this.ytPlayer.seekTo(timeSecs, true);
+            this.ytPlayer.playVideo();
+        } else {
+            if (this.audio && this.audio.duration) {
+                this.audio.currentTime = timeSecs;
+                this.audio.play();
+            }
         }
     },
 
-        //Queue
-        renderQueue() {
+    //Queue
+    renderQueue() {
 
         if (!this.queue.length) {
             this.els.queueList.innerHTML =
@@ -504,15 +648,15 @@ const Player = {
         this._scrollQueueToActive();
     },
 
-        _scrollQueueToActive(){
+    _scrollQueueToActive() {
         const active =
             this.els.queueList.querySelector('.queue-item.playing');
 
-        if(!active) return;
+        if (!active) return;
 
         active.scrollIntoView({
-            block:'center',
-            behavior:'smooth'
+            block: 'center',
+            behavior: 'smooth'
         });
     }
 };

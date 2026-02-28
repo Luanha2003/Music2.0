@@ -9,8 +9,8 @@ const App = {
     _searchTimeout: null,
     _bannerInterval: null,
     _bannerIndex: 0,
-    
-    
+
+
 
     init() {
         this.pageContent = document.getElementById('page-content');
@@ -20,19 +20,52 @@ const App = {
         document.querySelectorAll('.nav-item[data-page]').forEach(item => {
             item.addEventListener('click', () => {
                 const page = item.dataset.page;
-                this.navigate(page);
+                const targetHash = page === 'home' ? '#/' : '#/' + page;
+
+                // Hide mobile menu if open
+                if (this.sidebar && this.sidebar.classList.contains('open')) {
+                    this.sidebar.classList.remove('open');
+                    if (this.sidebarOverlay) this.sidebarOverlay.classList.remove('show');
+                }
+
+                if (location.hash === targetHash || (page === 'home' && (location.hash === '' || location.hash === '#/home'))) {
+                    this.navigate(page); // Reload if clicking current page
+                } else {
+                    location.hash = targetHash;
+                }
             });
         });
 
         // Hash routing
         window.addEventListener('hashchange', () => this._handleHash());
 
-        // Initial load
-        if (location.hash) {
-            this._handleHash();
-        } else {
-            this.navigate('home');
+        // Mobile Menu Toggle
+        this.btnMenu = document.getElementById('btn-mobile-menu');
+        this.sidebarOverlay = document.getElementById('sidebar-overlay');
+        this.sidebar = document.querySelector('.sidebar');
+
+        if (this.btnMenu && this.sidebarOverlay && this.sidebar) {
+            this.btnMenu.addEventListener('click', () => {
+                this.sidebar.classList.add('open');
+                this.sidebarOverlay.classList.add('show');
+            });
+            this.sidebarOverlay.addEventListener('click', () => {
+                this.sidebar.classList.remove('open');
+                this.sidebarOverlay.classList.remove('show');
+            });
         }
+
+        // PC Menu Toggle
+        this.btnPcMenu = document.getElementById('btn-pc-menu');
+        this.appContainer = document.querySelector('.app-container');
+        if (this.btnPcMenu && this.appContainer) {
+            this.btnPcMenu.addEventListener('click', () => {
+                this.appContainer.classList.toggle('collapsed');
+            });
+        }
+
+        // Initial load
+        this._handleHash();
     },
 
     // ── Navigation ──
@@ -59,6 +92,11 @@ const App = {
             case 'karaoke': this.loadKaraoke(); break;
         }
     }, _handleHash() {
+        if (!location.hash || location.hash === '#/' || location.hash === '#/home') {
+            this.navigate('home');
+            return;
+        }
+
         const hash = location.hash.slice(1);
         if (hash.startsWith('/myplaylist/')) {
             this.navigate('myplaylist', { id: hash.replace('/myplaylist/', '') });
@@ -80,6 +118,8 @@ const App = {
             this.navigate('top100');
         } else if (hash === '/newrelease') {
             this.navigate('newrelease');
+        } else if (hash === '/karaoke') {
+            this.navigate('karaoke');
         }
     },
 
@@ -853,13 +893,13 @@ const App = {
         this.initVoiceSearch(); // 👈 thêm
     },
 
-    initVoiceSearch(){
+    initVoiceSearch() {
 
         const SpeechRecognition =
             window.SpeechRecognition ||
             window.webkitSpeechRecognition;
 
-        if(!SpeechRecognition){
+        if (!SpeechRecognition) {
             alert("Trình duyệt không hỗ trợ tìm kiếm giọng nói");
             return;
         }
@@ -896,22 +936,22 @@ const App = {
         };
     },
 
-    initKaraokeSearch(){
+    initKaraokeSearch() {
 
         const input = document.getElementById("karaoke-search");
 
         input.addEventListener("keypress", e => {
 
-            if(e.key === "Enter"){
+            if (e.key === "Enter") {
                 this.searchKaraoke(input.value);
             }
 
         });
     },
 
-    async searchKaraoke(keyword){
+    async searchKaraoke(keyword) {
 
-        if(!keyword) return;
+        if (!keyword) return;
 
         const resultDiv = document.getElementById("karaoke-result");
         resultDiv.innerHTML = "Đang tìm karaoke...";
@@ -919,26 +959,26 @@ const App = {
         const query = encodeURIComponent(keyword + " karaoke");
 
         const url =
-        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=8&type=video&q=${query}&key=${ytapi_key}`;
+            `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=8&type=video&q=${query}&key=${ytapi_key}`;
 
-        try{
+        try {
             const res = await fetch(url);
             const data = await res.json();
 
-            if(!data.items){
+            if (!data.items) {
                 resultDiv.innerHTML = "Không tìm thấy video";
                 return;
             }
 
             this.renderKaraoke(data.items);
         }
-        catch(err){
+        catch (err) {
             console.error(err);
             resultDiv.innerHTML = "Lỗi tải karaoke";
         }
     },
 
-    renderKaraoke(videos){
+    renderKaraoke(videos) {
 
         const resultDiv = document.getElementById("karaoke-result");
 
@@ -960,7 +1000,7 @@ const App = {
         }).join("");
     },
 
-    playKaraoke(videoId){
+    playKaraoke(videoId) {
 
         this.pageContent.innerHTML = `
             <div class="karaoke-player">
@@ -979,7 +1019,7 @@ const App = {
         this.loadYoutubePlayer(videoId);
     },
 
-    loadYoutubePlayer(videoId){
+    loadYoutubePlayer(videoId) {
 
         const self = this;
 
@@ -988,15 +1028,15 @@ const App = {
             width: '100%',
             videoId: videoId,
 
-            events:{
-                onReady:e=>{
-                    e.target.playVideo(); 
+            events: {
+                onReady: e => {
+                    e.target.playVideo();
                 },
 
-                onStateChange:function(e){
+                onStateChange: function (e) {
 
                     // 0 = video ended
-                    if(e.data === 0){
+                    if (e.data === 0) {
                         self.showScore();
                     }
 
@@ -1005,12 +1045,12 @@ const App = {
         });
     },
 
-    showScore(){
+    showScore() {
 
         const scoreBox = document.getElementById("karaoke-score");
 
         const score =
-            Math.floor(Math.random()*21)+80; // 80-100 điểm
+            Math.floor(Math.random() * 21) + 80; // 80-100 điểm
 
         document.getElementById("score-text")
             .innerHTML = `⭐ Điểm của bạn: <b>${score}</b>/100`;

@@ -18,8 +18,11 @@
         <!-- ═══ SIDEBAR ═══ -->
         <aside class="sidebar">
             <div class="sidebar-logo">
-                <img src="~/music.png" alt="Music2.0" />
-                <h1>Music2.0</h1>
+                <button class="btn-pc-menu" id="btn-pc-menu">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+                </button>
+                <img src="~/music.png" alt="Music2.0" id="sidebar-icon" />
+                <h1 class="sidebar-title">Music2.0</h1>
             </div>
             <nav class="sidebar-nav">
                 <div class="nav-section-title">Khám phá</div>
@@ -83,6 +86,16 @@
 
         <!-- ═══ MAIN CONTENT ═══ -->
         <main class="main-content" id="main-content">
+            <!-- Mobile Header -->
+            <div class="mobile-header" id="mobile-header">
+                <button class="btn-mobile-menu" id="btn-mobile-menu">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/></svg>
+                </button>
+                <div class="mobile-logo">Music2.0</div>
+            </div>
+            <!-- Sidebar Overlay -->
+            <div class="sidebar-overlay" id="sidebar-overlay"></div>
+
             <div class="page-content" id="page-content">
                 @RenderBody()
             </div>
@@ -142,6 +155,9 @@
                 </div>
                 <div class="player-btn" id="btn-lyrics" title="Lời bài hát">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM6 20V4h7v5h5v11H6zm2-8h8v2H8v-2zm0 4h5v2H8v-2z"/></svg>
+                </div>
+                <div class="player-btn" id="btn-video" title="Xem Video" style="display: none;">
+                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 10.5V7c0-.55-.45-1-1-1H4c-.55 0-1 .45-1 1v10c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5l4 4v-11l-4 4z"/></svg>
                 </div>
                 <div class="volume-control">
                     <button class="volume-btn" id="volume-btn" title="Âm lượng">

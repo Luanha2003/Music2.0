@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "9C3Xhfrp9z97CgJJDtB/TXQ68mUTCZm57AvxBffZL44=",
+  "Hash": "us9jeSq3r+pM0fvHyGACxAXcp3QXm1O/GJu64QO7Rd8=",
   "Source": "Music2.0",
   "BasePath": "_content/Music2.0",
   "Mode": "Default",
@@ -416,12 +416,12 @@
       "OriginalItemSpec": "D:\\Music2.0\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\8m9poblnfm-trzrnkx2f0.gz",
+      "Identity": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\8m9poblnfm-9sbtqdsj7y.gz",
       "SourceId": "Music2.0",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/Music2.0",
-      "RelativePath": "js/app#[.{fingerprint=trzrnkx2f0}]?.js.gz",
+      "RelativePath": "js/app#[.{fingerprint=9sbtqdsj7y}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -430,8 +430,8 @@
       "RelatedAsset": "D:\\Music2.0\\wwwroot\\js\\app.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "qr19ch3yy2",
-      "Integrity": "NpFqyZZA28sqoC0SDPiouiWWBzWiHHBq7z+/YsbLwjM=",
+      "Fingerprint": "if40faxs2g",
+      "Integrity": "kgLzaMqT+B3m6oV/kjYe2/WPMZnRuUXjbcyyab49NA8=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\Music2.0\\wwwroot\\js\\app.js"
@@ -1004,12 +1004,12 @@
       "OriginalItemSpec": "D:\\Music2.0\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
     },
     {
-      "Identity": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\oe3slb2pz1-tcpjop3o4n.gz",
+      "Identity": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\oe3slb2pz1-ggzwsuepn7.gz",
       "SourceId": "Music2.0",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/Music2.0",
-      "RelativePath": "js/player#[.{fingerprint=tcpjop3o4n}]?.js.gz",
+      "RelativePath": "js/player#[.{fingerprint=ggzwsuepn7}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1018,8 +1018,8 @@
       "RelatedAsset": "D:\\Music2.0\\wwwroot\\js\\player.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "0tgfeh5yxi",
-      "Integrity": "LHuQCUdTDv7Gw4vUagE0TtJo++mZ32ac30m8N5Qqm54=",
+      "Fingerprint": "fc7bg4242w",
+      "Integrity": "77ll/CHNQA0eIyNVhp9Exho2WO2YrT9qj3oT/NynhpQ=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\Music2.0\\wwwroot\\js\\player.js"
@@ -1256,12 +1256,12 @@
       "OriginalItemSpec": "D:\\Music2.0\\wwwroot\\js\\site.js"
     },
     {
-      "Identity": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\w7ie5scxna-dthpvnqlqv.gz",
+      "Identity": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\w7ie5scxna-ej3c2wkbkn.gz",
       "SourceId": "Music2.0",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/Music2.0",
-      "RelativePath": "css/site#[.{fingerprint=dthpvnqlqv}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=ej3c2wkbkn}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1270,8 +1270,8 @@
       "RelatedAsset": "D:\\Music2.0\\wwwroot\\css\\site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "bpzpo7nqq6",
-      "Integrity": "/wSzmgS61p4w44ObQozFUtoeDABq7d/5wScnIdHOshc=",
+      "Fingerprint": "lu6n2uns73",
+      "Integrity": "k5PQAOXh/jra/NxT5NtgHj+8/jZhaxXYepOQI09k3sE=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "D:\\Music2.0\\wwwroot\\css\\site.css"
@@ -1480,8 +1480,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "dthpvnqlqv",
-      "Integrity": "j771+yOgE3eDhdAlK51nlBnLH4tkQ0hABmsggl1mh6g=",
+      "Fingerprint": "ej3c2wkbkn",
+      "Integrity": "6l7aNG+pElhu/Zwta/Or4SASiSZk+wzKuWV00WfZngM=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -1522,8 +1522,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "trzrnkx2f0",
-      "Integrity": "2cTSIRKlu/51v7zcTsBfq9A79tvIugMpo913KwiAsiM=",
+      "Fingerprint": "9sbtqdsj7y",
+      "Integrity": "F/HiqHkzUhugjosymqVrp2JaIc+YOFsf5i81R/AKSRY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\app.js"
@@ -1564,8 +1564,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "tcpjop3o4n",
-      "Integrity": "HVNStJ0CifIRnPq3RaKooZpU2layvUbT78GHbO1EriQ=",
+      "Fingerprint": "ggzwsuepn7",
+      "Integrity": "gJBxRl7gr5udrBx+SHcqVC5gGNaiW80o9zPIRWe8q0A=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\player.js"
@@ -2876,12 +2876,12 @@
   "Endpoints": [
     {
       "Route": "css/site.css",
-      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\w7ie5scxna-dthpvnqlqv.gz",
+      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\w7ie5scxna-ej3c2wkbkn.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000142511045"
+          "Quality": "0.000126855258"
         }
       ],
       "ResponseHeaders": [
@@ -2891,15 +2891,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "7016"
+          "Value": "7882"
         },
         {
           "Name": "ETag",
-          "Value": "\"/wSzmgS61p4w44ObQozFUtoeDABq7d/5wScnIdHOshc=\""
+          "Value": "\"k5PQAOXh/jra/NxT5NtgHj+8/jZhaxXYepOQI09k3sE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Feb 2026 07:13:57 GMT"
+          "Value": "Sat, 28 Feb 2026 11:23:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2919,13 +2919,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"j771+yOgE3eDhdAlK51nlBnLH4tkQ0hABmsggl1mh6g=\""
+          "Value": "W/\"6l7aNG+pElhu/Zwta/Or4SASiSZk+wzKuWV00WfZngM=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-j771+yOgE3eDhdAlK51nlBnLH4tkQ0hABmsggl1mh6g="
+          "Value": "sha256-6l7aNG+pElhu/Zwta/Or4SASiSZk+wzKuWV00WfZngM="
         }
       ]
     },
@@ -2940,7 +2940,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "39219"
+          "Value": "43812"
         },
         {
           "Name": "Content-Type",
@@ -2948,11 +2948,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"j771+yOgE3eDhdAlK51nlBnLH4tkQ0hABmsggl1mh6g=\""
+          "Value": "\"6l7aNG+pElhu/Zwta/Or4SASiSZk+wzKuWV00WfZngM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Feb 2026 07:13:57 GMT"
+          "Value": "Sat, 28 Feb 2026 11:23:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2962,13 +2962,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-j771+yOgE3eDhdAlK51nlBnLH4tkQ0hABmsggl1mh6g="
+          "Value": "sha256-6l7aNG+pElhu/Zwta/Or4SASiSZk+wzKuWV00WfZngM="
         }
       ]
     },
     {
       "Route": "css/site.css.gz",
-      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\w7ie5scxna-dthpvnqlqv.gz",
+      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\w7ie5scxna-ej3c2wkbkn.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2977,7 +2977,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "7016"
+          "Value": "7882"
         },
         {
           "Name": "Content-Type",
@@ -2985,11 +2985,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"/wSzmgS61p4w44ObQozFUtoeDABq7d/5wScnIdHOshc=\""
+          "Value": "\"k5PQAOXh/jra/NxT5NtgHj+8/jZhaxXYepOQI09k3sE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Feb 2026 07:13:57 GMT"
+          "Value": "Sat, 28 Feb 2026 11:23:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3007,18 +3007,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-/wSzmgS61p4w44ObQozFUtoeDABq7d/5wScnIdHOshc="
+          "Value": "sha256-k5PQAOXh/jra/NxT5NtgHj+8/jZhaxXYepOQI09k3sE="
         }
       ]
     },
     {
-      "Route": "css/site.dthpvnqlqv.css",
-      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\w7ie5scxna-dthpvnqlqv.gz",
+      "Route": "css/site.ej3c2wkbkn.css",
+      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\w7ie5scxna-ej3c2wkbkn.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000142511045"
+          "Quality": "0.000126855258"
         }
       ],
       "ResponseHeaders": [
@@ -3028,15 +3028,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "7016"
+          "Value": "7882"
         },
         {
           "Name": "ETag",
-          "Value": "\"/wSzmgS61p4w44ObQozFUtoeDABq7d/5wScnIdHOshc=\""
+          "Value": "\"k5PQAOXh/jra/NxT5NtgHj+8/jZhaxXYepOQI09k3sE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Feb 2026 07:13:57 GMT"
+          "Value": "Sat, 28 Feb 2026 11:23:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3056,13 +3056,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"j771+yOgE3eDhdAlK51nlBnLH4tkQ0hABmsggl1mh6g=\""
+          "Value": "W/\"6l7aNG+pElhu/Zwta/Or4SASiSZk+wzKuWV00WfZngM=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "dthpvnqlqv"
+          "Value": "ej3c2wkbkn"
         },
         {
           "Name": "label",
@@ -3070,12 +3070,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-j771+yOgE3eDhdAlK51nlBnLH4tkQ0hABmsggl1mh6g="
+          "Value": "sha256-6l7aNG+pElhu/Zwta/Or4SASiSZk+wzKuWV00WfZngM="
         }
       ]
     },
     {
-      "Route": "css/site.dthpvnqlqv.css",
+      "Route": "css/site.ej3c2wkbkn.css",
       "AssetFile": "D:\\Music2.0\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3085,7 +3085,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "39219"
+          "Value": "43812"
         },
         {
           "Name": "Content-Type",
@@ -3093,11 +3093,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"j771+yOgE3eDhdAlK51nlBnLH4tkQ0hABmsggl1mh6g=\""
+          "Value": "\"6l7aNG+pElhu/Zwta/Or4SASiSZk+wzKuWV00WfZngM=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Feb 2026 07:13:57 GMT"
+          "Value": "Sat, 28 Feb 2026 11:23:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3107,7 +3107,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "dthpvnqlqv"
+          "Value": "ej3c2wkbkn"
         },
         {
           "Name": "label",
@@ -3115,13 +3115,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-j771+yOgE3eDhdAlK51nlBnLH4tkQ0hABmsggl1mh6g="
+          "Value": "sha256-6l7aNG+pElhu/Zwta/Or4SASiSZk+wzKuWV00WfZngM="
         }
       ]
     },
     {
-      "Route": "css/site.dthpvnqlqv.css.gz",
-      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\w7ie5scxna-dthpvnqlqv.gz",
+      "Route": "css/site.ej3c2wkbkn.css.gz",
+      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\w7ie5scxna-ej3c2wkbkn.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3130,7 +3130,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "7016"
+          "Value": "7882"
         },
         {
           "Name": "Content-Type",
@@ -3138,11 +3138,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"/wSzmgS61p4w44ObQozFUtoeDABq7d/5wScnIdHOshc=\""
+          "Value": "\"k5PQAOXh/jra/NxT5NtgHj+8/jZhaxXYepOQI09k3sE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Feb 2026 07:13:57 GMT"
+          "Value": "Sat, 28 Feb 2026 11:23:12 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3160,7 +3160,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "dthpvnqlqv"
+          "Value": "ej3c2wkbkn"
         },
         {
           "Name": "label",
@@ -3168,7 +3168,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-/wSzmgS61p4w44ObQozFUtoeDABq7d/5wScnIdHOshc="
+          "Value": "sha256-k5PQAOXh/jra/NxT5NtgHj+8/jZhaxXYepOQI09k3sE="
         }
       ]
     },
@@ -3471,13 +3471,13 @@
       ]
     },
     {
-      "Route": "js/app.js",
-      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\8m9poblnfm-trzrnkx2f0.gz",
+      "Route": "js/app.9sbtqdsj7y.js",
+      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\8m9poblnfm-9sbtqdsj7y.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000091141086"
+          "Quality": "0.000088715401"
         }
       ],
       "ResponseHeaders": [
@@ -3487,19 +3487,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "10971"
+          "Value": "11271"
         },
         {
           "Name": "ETag",
-          "Value": "\"NpFqyZZA28sqoC0SDPiouiWWBzWiHHBq7z+/YsbLwjM=\""
+          "Value": "\"kgLzaMqT+B3m6oV/kjYe2/WPMZnRuUXjbcyyab49NA8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Feb 2026 07:01:06 GMT"
+          "Value": "Sat, 28 Feb 2026 11:23:38 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -3515,18 +3515,26 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"2cTSIRKlu/51v7zcTsBfq9A79tvIugMpo913KwiAsiM=\""
+          "Value": "W/\"F/HiqHkzUhugjosymqVrp2JaIc+YOFsf5i81R/AKSRY=\""
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "9sbtqdsj7y"
+        },
+        {
+          "Name": "label",
+          "Value": "js/app.js"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-2cTSIRKlu/51v7zcTsBfq9A79tvIugMpo913KwiAsiM="
+          "Value": "sha256-F/HiqHkzUhugjosymqVrp2JaIc+YOFsf5i81R/AKSRY="
         }
       ]
     },
     {
-      "Route": "js/app.js",
+      "Route": "js/app.9sbtqdsj7y.js",
       "AssetFile": "D:\\Music2.0\\wwwroot\\js\\app.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3536,7 +3544,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "53644"
+          "Value": "55530"
         },
         {
           "Name": "Content-Type",
@@ -3544,121 +3552,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2cTSIRKlu/51v7zcTsBfq9A79tvIugMpo913KwiAsiM=\""
+          "Value": "\"F/HiqHkzUhugjosymqVrp2JaIc+YOFsf5i81R/AKSRY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Feb 2026 07:01:06 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-2cTSIRKlu/51v7zcTsBfq9A79tvIugMpo913KwiAsiM="
-        }
-      ]
-    },
-    {
-      "Route": "js/app.js.gz",
-      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\8m9poblnfm-trzrnkx2f0.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "10971"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"NpFqyZZA28sqoC0SDPiouiWWBzWiHHBq7z+/YsbLwjM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 28 Feb 2026 07:01:06 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-NpFqyZZA28sqoC0SDPiouiWWBzWiHHBq7z+/YsbLwjM="
-        }
-      ]
-    },
-    {
-      "Route": "js/app.trzrnkx2f0.js",
-      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\8m9poblnfm-trzrnkx2f0.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000091141086"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "10971"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"NpFqyZZA28sqoC0SDPiouiWWBzWiHHBq7z+/YsbLwjM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 28 Feb 2026 07:01:06 GMT"
+          "Value": "Sat, 28 Feb 2026 11:23:38 GMT"
         },
         {
           "Name": "Cache-Control",
           "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"2cTSIRKlu/51v7zcTsBfq9A79tvIugMpo913KwiAsiM=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "trzrnkx2f0"
+          "Value": "9sbtqdsj7y"
         },
         {
           "Name": "label",
@@ -3666,13 +3574,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-2cTSIRKlu/51v7zcTsBfq9A79tvIugMpo913KwiAsiM="
+          "Value": "sha256-F/HiqHkzUhugjosymqVrp2JaIc+YOFsf5i81R/AKSRY="
         }
       ]
     },
     {
-      "Route": "js/app.trzrnkx2f0.js",
-      "AssetFile": "D:\\Music2.0\\wwwroot\\js\\app.js",
+      "Route": "js/app.9sbtqdsj7y.js.gz",
+      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\8m9poblnfm-9sbtqdsj7y.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3681,7 +3589,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "53644"
+          "Value": "11271"
         },
         {
           "Name": "Content-Type",
@@ -3689,56 +3597,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"2cTSIRKlu/51v7zcTsBfq9A79tvIugMpo913KwiAsiM=\""
+          "Value": "\"kgLzaMqT+B3m6oV/kjYe2/WPMZnRuUXjbcyyab49NA8=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Feb 2026 07:01:06 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "trzrnkx2f0"
-        },
-        {
-          "Name": "label",
-          "Value": "js/app.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-2cTSIRKlu/51v7zcTsBfq9A79tvIugMpo913KwiAsiM="
-        }
-      ]
-    },
-    {
-      "Route": "js/app.trzrnkx2f0.js.gz",
-      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\8m9poblnfm-trzrnkx2f0.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "10971"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"NpFqyZZA28sqoC0SDPiouiWWBzWiHHBq7z+/YsbLwjM=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 28 Feb 2026 07:01:06 GMT"
+          "Value": "Sat, 28 Feb 2026 11:23:38 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3756,7 +3619,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "trzrnkx2f0"
+          "Value": "9sbtqdsj7y"
         },
         {
           "Name": "label",
@@ -3764,7 +3627,144 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-NpFqyZZA28sqoC0SDPiouiWWBzWiHHBq7z+/YsbLwjM="
+          "Value": "sha256-kgLzaMqT+B3m6oV/kjYe2/WPMZnRuUXjbcyyab49NA8="
+        }
+      ]
+    },
+    {
+      "Route": "js/app.js",
+      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\8m9poblnfm-9sbtqdsj7y.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000088715401"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11271"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kgLzaMqT+B3m6oV/kjYe2/WPMZnRuUXjbcyyab49NA8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Feb 2026 11:23:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"F/HiqHkzUhugjosymqVrp2JaIc+YOFsf5i81R/AKSRY=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-F/HiqHkzUhugjosymqVrp2JaIc+YOFsf5i81R/AKSRY="
+        }
+      ]
+    },
+    {
+      "Route": "js/app.js",
+      "AssetFile": "D:\\Music2.0\\wwwroot\\js\\app.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "55530"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"F/HiqHkzUhugjosymqVrp2JaIc+YOFsf5i81R/AKSRY=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Feb 2026 11:23:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-F/HiqHkzUhugjosymqVrp2JaIc+YOFsf5i81R/AKSRY="
+        }
+      ]
+    },
+    {
+      "Route": "js/app.js.gz",
+      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\8m9poblnfm-9sbtqdsj7y.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "11271"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"kgLzaMqT+B3m6oV/kjYe2/WPMZnRuUXjbcyyab49NA8=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Feb 2026 11:23:38 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-kgLzaMqT+B3m6oV/kjYe2/WPMZnRuUXjbcyyab49NA8="
         }
       ]
     },
@@ -4067,13 +4067,13 @@
       ]
     },
     {
-      "Route": "js/player.js",
-      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\oe3slb2pz1-tcpjop3o4n.gz",
+      "Route": "js/player.ggzwsuepn7.js",
+      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\oe3slb2pz1-ggzwsuepn7.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000211640212"
+          "Quality": "0.000166417041"
         }
       ],
       "ResponseHeaders": [
@@ -4083,19 +4083,19 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "4724"
+          "Value": "6008"
         },
         {
           "Name": "ETag",
-          "Value": "\"LHuQCUdTDv7Gw4vUagE0TtJo++mZ32ac30m8N5Qqm54=\""
+          "Value": "\"77ll/CHNQA0eIyNVhp9Exho2WO2YrT9qj3oT/NynhpQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Feb 2026 07:01:06 GMT"
+          "Value": "Sat, 28 Feb 2026 11:00:59 GMT"
         },
         {
           "Name": "Cache-Control",
-          "Value": "no-cache"
+          "Value": "max-age=31536000, immutable"
         },
         {
           "Name": "Content-Encoding",
@@ -4111,18 +4111,26 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"HVNStJ0CifIRnPq3RaKooZpU2layvUbT78GHbO1EriQ=\""
+          "Value": "W/\"gJBxRl7gr5udrBx+SHcqVC5gGNaiW80o9zPIRWe8q0A=\""
         }
       ],
       "EndpointProperties": [
         {
+          "Name": "fingerprint",
+          "Value": "ggzwsuepn7"
+        },
+        {
+          "Name": "label",
+          "Value": "js/player.js"
+        },
+        {
           "Name": "integrity",
-          "Value": "sha256-HVNStJ0CifIRnPq3RaKooZpU2layvUbT78GHbO1EriQ="
+          "Value": "sha256-gJBxRl7gr5udrBx+SHcqVC5gGNaiW80o9zPIRWe8q0A="
         }
       ]
     },
     {
-      "Route": "js/player.js",
+      "Route": "js/player.ggzwsuepn7.js",
       "AssetFile": "D:\\Music2.0\\wwwroot\\js\\player.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -4132,7 +4140,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "20382"
+          "Value": "27415"
         },
         {
           "Name": "Content-Type",
@@ -4140,121 +4148,21 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"HVNStJ0CifIRnPq3RaKooZpU2layvUbT78GHbO1EriQ=\""
+          "Value": "\"gJBxRl7gr5udrBx+SHcqVC5gGNaiW80o9zPIRWe8q0A=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Feb 2026 07:01:06 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-HVNStJ0CifIRnPq3RaKooZpU2layvUbT78GHbO1EriQ="
-        }
-      ]
-    },
-    {
-      "Route": "js/player.js.gz",
-      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\oe3slb2pz1-tcpjop3o4n.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4724"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"LHuQCUdTDv7Gw4vUagE0TtJo++mZ32ac30m8N5Qqm54=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 28 Feb 2026 07:01:06 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "no-cache"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "integrity",
-          "Value": "sha256-LHuQCUdTDv7Gw4vUagE0TtJo++mZ32ac30m8N5Qqm54="
-        }
-      ]
-    },
-    {
-      "Route": "js/player.tcpjop3o4n.js",
-      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\oe3slb2pz1-tcpjop3o4n.gz",
-      "Selectors": [
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip",
-          "Quality": "0.000211640212"
-        }
-      ],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4724"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"LHuQCUdTDv7Gw4vUagE0TtJo++mZ32ac30m8N5Qqm54=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 28 Feb 2026 07:01:06 GMT"
+          "Value": "Sat, 28 Feb 2026 11:00:59 GMT"
         },
         {
           "Name": "Cache-Control",
           "Value": "max-age=31536000, immutable"
-        },
-        {
-          "Name": "Content-Encoding",
-          "Value": "gzip"
-        },
-        {
-          "Name": "Vary",
-          "Value": "Content-Encoding"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "W/\"HVNStJ0CifIRnPq3RaKooZpU2layvUbT78GHbO1EriQ=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "tcpjop3o4n"
+          "Value": "ggzwsuepn7"
         },
         {
           "Name": "label",
@@ -4262,13 +4170,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-HVNStJ0CifIRnPq3RaKooZpU2layvUbT78GHbO1EriQ="
+          "Value": "sha256-gJBxRl7gr5udrBx+SHcqVC5gGNaiW80o9zPIRWe8q0A="
         }
       ]
     },
     {
-      "Route": "js/player.tcpjop3o4n.js",
-      "AssetFile": "D:\\Music2.0\\wwwroot\\js\\player.js",
+      "Route": "js/player.ggzwsuepn7.js.gz",
+      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\oe3slb2pz1-ggzwsuepn7.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -4277,7 +4185,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "20382"
+          "Value": "6008"
         },
         {
           "Name": "Content-Type",
@@ -4285,56 +4193,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"HVNStJ0CifIRnPq3RaKooZpU2layvUbT78GHbO1EriQ=\""
+          "Value": "\"77ll/CHNQA0eIyNVhp9Exho2WO2YrT9qj3oT/NynhpQ=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sat, 28 Feb 2026 07:01:06 GMT"
-        },
-        {
-          "Name": "Cache-Control",
-          "Value": "max-age=31536000, immutable"
-        }
-      ],
-      "EndpointProperties": [
-        {
-          "Name": "fingerprint",
-          "Value": "tcpjop3o4n"
-        },
-        {
-          "Name": "label",
-          "Value": "js/player.js"
-        },
-        {
-          "Name": "integrity",
-          "Value": "sha256-HVNStJ0CifIRnPq3RaKooZpU2layvUbT78GHbO1EriQ="
-        }
-      ]
-    },
-    {
-      "Route": "js/player.tcpjop3o4n.js.gz",
-      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\oe3slb2pz1-tcpjop3o4n.gz",
-      "Selectors": [],
-      "ResponseHeaders": [
-        {
-          "Name": "Accept-Ranges",
-          "Value": "bytes"
-        },
-        {
-          "Name": "Content-Length",
-          "Value": "4724"
-        },
-        {
-          "Name": "Content-Type",
-          "Value": "text/javascript"
-        },
-        {
-          "Name": "ETag",
-          "Value": "\"LHuQCUdTDv7Gw4vUagE0TtJo++mZ32ac30m8N5Qqm54=\""
-        },
-        {
-          "Name": "Last-Modified",
-          "Value": "Sat, 28 Feb 2026 07:01:06 GMT"
+          "Value": "Sat, 28 Feb 2026 11:00:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -4352,7 +4215,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "tcpjop3o4n"
+          "Value": "ggzwsuepn7"
         },
         {
           "Name": "label",
@@ -4360,7 +4223,144 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-LHuQCUdTDv7Gw4vUagE0TtJo++mZ32ac30m8N5Qqm54="
+          "Value": "sha256-77ll/CHNQA0eIyNVhp9Exho2WO2YrT9qj3oT/NynhpQ="
+        }
+      ]
+    },
+    {
+      "Route": "js/player.js",
+      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\oe3slb2pz1-ggzwsuepn7.gz",
+      "Selectors": [
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip",
+          "Quality": "0.000166417041"
+        }
+      ],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6008"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"77ll/CHNQA0eIyNVhp9Exho2WO2YrT9qj3oT/NynhpQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Feb 2026 11:00:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "W/\"gJBxRl7gr5udrBx+SHcqVC5gGNaiW80o9zPIRWe8q0A=\""
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gJBxRl7gr5udrBx+SHcqVC5gGNaiW80o9zPIRWe8q0A="
+        }
+      ]
+    },
+    {
+      "Route": "js/player.js",
+      "AssetFile": "D:\\Music2.0\\wwwroot\\js\\player.js",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "27415"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"gJBxRl7gr5udrBx+SHcqVC5gGNaiW80o9zPIRWe8q0A=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Feb 2026 11:00:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-gJBxRl7gr5udrBx+SHcqVC5gGNaiW80o9zPIRWe8q0A="
+        }
+      ]
+    },
+    {
+      "Route": "js/player.js.gz",
+      "AssetFile": "D:\\Music2.0\\obj\\Debug\\net9.0\\compressed\\oe3slb2pz1-ggzwsuepn7.gz",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6008"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "text/javascript"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"77ll/CHNQA0eIyNVhp9Exho2WO2YrT9qj3oT/NynhpQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sat, 28 Feb 2026 11:00:59 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Encoding",
+          "Value": "gzip"
+        },
+        {
+          "Name": "Vary",
+          "Value": "Content-Encoding"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-77ll/CHNQA0eIyNVhp9Exho2WO2YrT9qj3oT/NynhpQ="
         }
       ]
     },
