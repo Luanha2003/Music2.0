@@ -44,7 +44,13 @@ const Player = {
             lyricsImg: document.getElementById('lyrics-img'),
             lyricsTitle: document.getElementById('lyrics-title'),
             lyricsArtist: document.getElementById('lyrics-artist'),
-            lyricsText: document.getElementById('lyrics-text')
+            lyricsText: document.getElementById('lyrics-text'),
+
+            btnQueue: document.getElementById('btn-queue'),
+            queuePanel: document.getElementById('queue-panel'),
+            queueClose: document.getElementById('queue-close'),
+            btnCloseQueue: document.getElementById('btn-close-queue'),
+            queueList: document.getElementById('queue-list')
         };
 
         this.audio.volume = this.volume;
@@ -177,6 +183,26 @@ const Player = {
                 App.navigate('artist', { alias: alias.replace('/nghe-si/', '').replace('/', '') });
             }
         });
+
+        //Queue
+        if (this.els.btnQueue) {
+            this.els.btnQueue.addEventListener('click', () => {
+                this.renderQueue();
+                this.els.queuePanel?.classList.add('show');
+            });
+        }
+
+        if (this.els.queueClose) {
+            this.els.queueClose.addEventListener('click', () =>
+                this.els.queuePanel?.classList.remove('show')
+            );
+        }
+
+        if (this.els.btnCloseQueue) {
+            this.els.btnCloseQueue.addEventListener('click', () =>
+                this.els.queuePanel?.classList.remove('show')
+            );
+        }
     },
 
     // ── Play a song ──
@@ -432,5 +458,61 @@ const Player = {
             this.audio.currentTime = timeMs / 1000;
             this.audio.play();
         }
+    },
+
+        //Queue
+        renderQueue() {
+
+        if (!this.queue.length) {
+            this.els.queueList.innerHTML =
+                '<div class="queue-empty">Chưa có bài hát</div>';
+            return;
+        }
+
+        let html = '';
+
+        this.queue.forEach((song, index) => {
+
+            const playing = index === this.currentIndex
+                ? 'playing'
+                : '';
+
+            html += `
+            <div class="queue-item ${playing}"
+                data-index="${index}">
+                <img src="${song.thumbnailM || song.thumbnail || '/music.png'}">
+                <div>
+                    <div>${song.title}</div>
+                    <small>${song.artistsNames || ''}</small>
+                </div>
+            </div>`;
+        });
+
+        this.els.queueList.innerHTML = html;
+
+        // click play
+        this.els.queueList.querySelectorAll('.queue-item')
+            .forEach(el => {
+                el.onclick = () => {
+                    const i = +el.dataset.index;
+                    this.currentIndex = i;
+                    this.playSong(this.queue[i], null, i);
+                    this.renderQueue();
+                };
+            });
+
+        this._scrollQueueToActive();
+    },
+
+        _scrollQueueToActive(){
+        const active =
+            this.els.queueList.querySelector('.queue-item.playing');
+
+        if(!active) return;
+
+        active.scrollIntoView({
+            block:'center',
+            behavior:'smooth'
+        });
     }
 };

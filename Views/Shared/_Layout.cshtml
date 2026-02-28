@@ -10,6 +10,8 @@
     <title>@ViewData["Title"]</title>
     <link rel="icon" href="~/music.png" type="image/png" />
     <link rel="stylesheet" href="~/css/site.css" />
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
     <div class="app-container">
@@ -34,12 +36,21 @@
                     Tìm kiếm
                 </div>
 
+                <div class="nav-item" data-page="karaoke" id="nav-karaoke">
+                    <span class="nav-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 1a4 4 0 00-4 4v6a4 4 0 008 0V5a4 4 0 00-4-4zm6 10v1a6 6 0 01-5 5.91V21h3v2H8v-2h3v-3.09A6 6 0 016 12v-1h2v1a4 4 0 008 0v-1h2z"/>
+                        </svg>
+                    </span>
+                    Karaoke
+                </div>
+
                 <div class="nav-section-title">Bảng xếp hạng</div>
                 <div class="nav-item" data-page="chart" id="nav-chart">
                     <span class="nav-icon">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 3v18h18v-2H5V3H3zm14 4a1 1 0 011 1v9a1 1 0 11-2 0V8a1 1 0 011-1zm-4 4a1 1 0 011 1v5a1 1 0 11-2 0v-5a1 1 0 011-1zm-4 2a1 1 0 011 1v3a1 1 0 11-2 0v-3a1 1 0 011-1z"/></svg>
                     </span>
-                    #zingchart
+                    Bảng xếp hạng
                 </div>
                 <div class="nav-item" data-page="newrelease" id="nav-newrelease">
                     <span class="nav-icon">
@@ -65,7 +76,7 @@
                     <span class="nav-icon">
                         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 10h12v2H4zm0-4h12v2H4zm0 8h8v2H4zm10 0v6l5-3z"/></svg>
                     </span>
-                    Playlist của tôi
+                    Playlist
                 </div>
             </nav>
         </aside>
@@ -84,6 +95,7 @@
                 <div class="player-thumb" id="player-thumb">
                     <img src="/music.png" alt="" id="player-thumb-img" />
                 </div>
+                
                 <div class="player-song-info">
                     <div class="player-song-name clickable" id="player-song-name" title="Xem lời bài hát">Chưa phát bài hát nào</div>
                     <div class="player-song-artist clickable" id="player-song-artist" title="Xem trang ca sĩ">---</div>
@@ -123,6 +135,11 @@
 
             <!-- Right: Volume -->
             <div class="player-extra">
+                <div class="player-btn" id="btn-queue" title="Danh sách chờ">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M3 10h18v2H3zm0-5h18v2H3zm0 10h12v2H3z"/>
+                    </svg>
+                </div>
                 <div class="player-btn" id="btn-lyrics" title="Lời bài hát">
                     <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8l-6-6zM6 20V4h7v5h5v11H6zm2-8h8v2H8v-2zm0 4h5v2H8v-2z"/></svg>
                 </div>
@@ -135,6 +152,21 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- QUEUE PANEL -->
+        <div class="queue-panel" id="queue-panel">
+
+            <div class="queue-header">
+                    <h3>Danh sách hàng chờ</h3>
+                <button id="close-queue">✕</button>
+            </div>
+
+            <div class="queue-list" id="queue-list">
+                <div class="queue-empty">
+                    Chưa có bài hát trong hàng chờ
+                </div>
+            </div>
+
         </div>
     </div>
 

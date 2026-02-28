@@ -2,13 +2,15 @@
    app.js - SPA Router & Page Renderers
    Ứng dụng nghe nhạc Music2.0
    ============================================================ */
-
+const ytapi_key = "AIzaSyAXINrJXMZzOgZlQhnhZmgxM47zBnA2Ejs";
 const App = {
     pageContent: null,
     currentPage: null,
     _searchTimeout: null,
     _bannerInterval: null,
     _bannerIndex: 0,
+    
+    
 
     init() {
         this.pageContent = document.getElementById('page-content');
@@ -54,6 +56,7 @@ const App = {
             case 'myplaylist': this.loadMyPlaylist(); break;
             case 'artist': this.loadArtist(params.alias); break;
             case 'playlist': this.loadPlaylist(params.id); break;
+            case 'karaoke': this.loadKaraoke(); break;
         }
     }, _handleHash() {
         const hash = location.hash.slice(1);
@@ -822,6 +825,198 @@ const App = {
             window.location.hash = '/myplaylist';
         }
     },
+    /* ===========================
+    KARAOKE PAGE
+    =========================== */
+
+    loadKaraoke() {
+
+        this.pageContent.innerHTML = `
+            <div class="karaoke-page">
+                <h2>🎤 Karaoke Online</h2>
+
+                <div class="karaoke-search-box">
+                    <input id="karaoke-search"
+                        placeholder="Tìm karaoke..."
+                        class="karaoke-input"/>
+
+                    <button id="voice-btn" class="voice-btn">
+                        <i class="fa-solid fa-microphone"></i>
+                    </button>
+                </div>
+
+                <div id="karaoke-result"></div>
+            </div>
+        `;
+
+        this.initKaraokeSearch();
+        this.initVoiceSearch(); // 👈 thêm
+    },
+
+    initVoiceSearch(){
+
+        const SpeechRecognition =
+            window.SpeechRecognition ||
+            window.webkitSpeechRecognition;
+
+        if(!SpeechRecognition){
+            alert("Trình duyệt không hỗ trợ tìm kiếm giọng nói");
+            return;
+        }
+
+        const recognition = new SpeechRecognition();
+
+        recognition.lang = "vi-VN";
+        recognition.interimResults = false;
+        recognition.maxAlternatives = 1;
+
+        const btn = document.getElementById("voice-btn");
+        const input = document.getElementById("karaoke-search");
+
+        btn.onclick = () => {
+            recognition.start();
+            btn.classList.add("listening");
+        };
+
+        recognition.onresult = (event) => {
+
+            const text = event.results[0][0].transcript;
+
+            input.value = text;
+
+            this.searchKaraoke(text);
+        };
+
+        recognition.onend = () => {
+            btn.classList.remove("listening");
+        };
+
+        recognition.onerror = () => {
+            btn.classList.remove("listening");
+        };
+    },
+
+    initKaraokeSearch(){
+
+        const input = document.getElementById("karaoke-search");
+
+        input.addEventListener("keypress", e => {
+
+            if(e.key === "Enter"){
+                this.searchKaraoke(input.value);
+            }
+
+        });
+    },
+
+    async searchKaraoke(keyword){
+
+        if(!keyword) return;
+
+        const resultDiv = document.getElementById("karaoke-result");
+        resultDiv.innerHTML = "Đang tìm karaoke...";
+
+        const query = encodeURIComponent(keyword + " karaoke");
+
+        const url =
+        `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=8&type=video&q=${query}&key=${ytapi_key}`;
+
+        try{
+            const res = await fetch(url);
+            const data = await res.json();
+
+            if(!data.items){
+                resultDiv.innerHTML = "Không tìm thấy video";
+                return;
+            }
+
+            this.renderKaraoke(data.items);
+        }
+        catch(err){
+            console.error(err);
+            resultDiv.innerHTML = "Lỗi tải karaoke";
+        }
+    },
+
+    renderKaraoke(videos){
+
+        const resultDiv = document.getElementById("karaoke-result");
+
+        resultDiv.innerHTML = videos.map(v => {
+
+            const id = v.id.videoId;
+            const title = v.snippet.title;
+            const thumb = v.snippet.thumbnails.medium.url;
+
+            return `
+                <div class="karaoke-item"
+                    onclick="App.playKaraoke('${id}')">
+
+                    <img src="${thumb}" />
+                    <p>${title}</p>
+
+                </div>
+            `;
+        }).join("");
+    },
+
+    playKaraoke(videoId){
+
+        this.pageContent.innerHTML = `
+            <div class="karaoke-player">
+
+                <div id="yt-player"></div>
+
+                <div id="karaoke-score" class="karaoke-score hidden">
+                    <h2>🎤 Bạn hát xong rồi!</h2>
+                    <p id="score-text"></p>
+                    <button onclick="App.loadKaraoke()">Hát tiếp</button>
+                </div>
+
+            </div>
+        `;
+
+        this.loadYoutubePlayer(videoId);
+    },
+
+    loadYoutubePlayer(videoId){
+
+        const self = this;
+
+        window.player = new YT.Player('yt-player', {
+            height: '600',
+            width: '100%',
+            videoId: videoId,
+
+            events:{
+                onReady:e=>{
+                    e.target.playVideo(); 
+                },
+
+                onStateChange:function(e){
+
+                    // 0 = video ended
+                    if(e.data === 0){
+                        self.showScore();
+                    }
+
+                }
+            }
+        });
+    },
+
+    showScore(){
+
+        const scoreBox = document.getElementById("karaoke-score");
+
+        const score =
+            Math.floor(Math.random()*21)+80; // 80-100 điểm
+
+        document.getElementById("score-text")
+            .innerHTML = `⭐ Điểm của bạn: <b>${score}</b>/100`;
+
+        scoreBox.classList.remove("hidden");
+    },
 
     // ═══════════════════════════════════
     // SHARED RENDER HELPERS
@@ -1058,7 +1253,23 @@ const App = {
         if (n >= 1000) return (n / 1000).toFixed(0) + 'K';
         return n.toString();
     },
+
 };
+
 
 // ── Start App ──
 document.addEventListener('DOMContentLoaded', () => App.init());
+
+
+
+const queuePanel = document.getElementById("queue-panel");
+const btnQueue = document.getElementById("btn-queue");
+const closeQueue = document.getElementById("close-queue");
+
+btnQueue.onclick = () => {
+    queuePanel.classList.toggle("show");
+};
+
+closeQueue.onclick = () => {
+    queuePanel.classList.remove("show");
+};
