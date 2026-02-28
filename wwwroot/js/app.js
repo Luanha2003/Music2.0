@@ -1309,11 +1309,22 @@ document.addEventListener('DOMContentLoaded', () => App.init());
 
 const queuePanel = document.getElementById("queue-panel");
 const btnQueue = document.getElementById("btn-queue");
+const btnMobileQueue = document.getElementById("btn-mobile-queue");
 const closeQueue = document.getElementById("close-queue");
 
-btnQueue.onclick = () => {
-    queuePanel.classList.toggle("show");
-};
+if (btnQueue) {
+    btnQueue.onclick = () => {
+        if (window.player) window.player.renderQueue();
+        queuePanel.classList.toggle("show");
+    };
+}
+
+if (btnMobileQueue) {
+    btnMobileQueue.onclick = () => {
+        if (window.player) window.player.renderQueue();
+        queuePanel.classList.toggle("show");
+    };
+}
 
 closeQueue.onclick = () => {
     queuePanel.classList.remove("show");

@@ -265,13 +265,7 @@ const Player = {
             }
         });
 
-        //Queue
-        if (this.els.btnQueue) {
-            this.els.btnQueue.addEventListener('click', () => {
-                this.renderQueue();
-                this.els.queuePanel?.classList.add('show');
-            });
-        }
+        //Queue mapped in app.js
 
         if (this.els.queueClose) {
             this.els.queueClose.addEventListener('click', () =>

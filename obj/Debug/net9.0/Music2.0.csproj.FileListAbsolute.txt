@@ -298,6 +298,6 @@ E:\Music2.0\obj\Debug\net9.0\ref\Music2.0.dll
 E:\Music2.0\obj\Debug\net9.0\compressed\oe3slb2pz1-tcpjop3o4n.gz
 E:\Music2.0\obj\Debug\net9.0\compressed\w7ie5scxna-giq7s9iari.gz
 E:\Music2.0\obj\Debug\net9.0\compressed\8m9poblnfm-trzrnkx2f0.gz
-D:\Music2.0\obj\Debug\net9.0\compressed\oe3slb2pz1-ggzwsuepn7.gz
-D:\Music2.0\obj\Debug\net9.0\compressed\8m9poblnfm-351c2ltkwt.gz
-D:\Music2.0\obj\Debug\net9.0\compressed\w7ie5scxna-rlwsyezcuq.gz
+D:\Music2.0\obj\Debug\net9.0\compressed\w7ie5scxna-0hjzlevczj.gz
+D:\Music2.0\obj\Debug\net9.0\compressed\8m9poblnfm-1fqjgezzxn.gz
+D:\Music2.0\obj\Debug\net9.0\compressed\oe3slb2pz1-4tjosne3hq.gz
