@@ -196,10 +196,7 @@ D:\Music2.0\obj\Debug\net9.0\refint\Music2.0.dll
 D:\Music2.0\obj\Debug\net9.0\Music2.0.pdb
 D:\Music2.0\obj\Debug\net9.0\Music2.0.genruntimeconfig.cache
 D:\Music2.0\obj\Debug\net9.0\ref\Music2.0.dll
-D:\Music2.0\obj\Debug\net9.0\compressed\oe3slb2pz1-86m4lq60dl.gz
-D:\Music2.0\obj\Debug\net9.0\compressed\w7ie5scxna-1kop483n06.gz
 D:\Music2.0\obj\Debug\net9.0\compressed\s53pmbjq69-qi768yaw6g.gz
-D:\Music2.0\obj\Debug\net9.0\compressed\8m9poblnfm-y8jm8kz1un.gz
 E:\Music2.0\bin\Debug\net9.0\appsettings.Development.json
 E:\Music2.0\bin\Debug\net9.0\appsettings.json
 E:\Music2.0\bin\Debug\net9.0\Music2.0.staticwebassets.runtime.json
@@ -301,3 +298,6 @@ E:\Music2.0\obj\Debug\net9.0\ref\Music2.0.dll
 E:\Music2.0\obj\Debug\net9.0\compressed\oe3slb2pz1-tcpjop3o4n.gz
 E:\Music2.0\obj\Debug\net9.0\compressed\w7ie5scxna-giq7s9iari.gz
 E:\Music2.0\obj\Debug\net9.0\compressed\8m9poblnfm-trzrnkx2f0.gz
+D:\Music2.0\obj\Debug\net9.0\compressed\8m9poblnfm-trzrnkx2f0.gz
+D:\Music2.0\obj\Debug\net9.0\compressed\oe3slb2pz1-tcpjop3o4n.gz
+D:\Music2.0\obj\Debug\net9.0\compressed\w7ie5scxna-dthpvnqlqv.gz
