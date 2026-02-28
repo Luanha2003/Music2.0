@@ -319,7 +319,7 @@ const App = {
 
         const data = json.data;
         let html = '<div class="fade-in">';
-        html += '<div class="section-header"><h2 class="section-title" style="font-size:2rem">#zingchart</h2></div>';
+        html += '<div class="section-header"><h2 class="section-title" style="font-size:2rem">Bảng Xếp Hạng</h2></div>';
 
         if (data.RTChart && data.RTChart.items) {
             html += '<div class="song-list stagger">';

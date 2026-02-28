@@ -107,6 +107,7 @@ img {
     height: 100vh;
     height: 100dvh;
     width: 100vw;
+    position:relative;
 }
 
 /* ── Sidebar ── */
@@ -1002,7 +1003,7 @@ img {
 
 .player-btn svg {
     width: 18px;
-    height: 18px;
+    height: 35px;
     fill: currentColor;
 }
 
@@ -2394,11 +2395,12 @@ img {
     pointer-events: none;
 }
 
+
 #hidden-yt-audio.show-pip {
     opacity: 1;
     left: auto;
     right: 20px;
-    bottom: 100px;
+    bottom: 72px;
     width: 350px;
     height: 197px;
     /* 16:9 */

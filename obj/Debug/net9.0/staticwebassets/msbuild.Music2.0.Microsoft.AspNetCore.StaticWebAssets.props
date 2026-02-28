@@ -12,8 +12,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>0hjzlevczj</Fingerprint>
-      <Integrity>rJVauZcoR9eJ4JHwOQXLG/ojbCb8aEANdx7V38VPa9g=</Integrity>
+      <Fingerprint>ueuttxe29a</Fingerprint>
+      <Integrity>NgAMkjc/KtA1KHNsMgaZVU+OUbz4JHW1aC83F7t4y0M=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\css\site.css'))</OriginalItemSpec>
@@ -48,8 +48,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>1fqjgezzxn</Fingerprint>
-      <Integrity>fQRs1IfiIQ0PXbLl+CFx6Vyy58xf+33SfMUyASXNK4g=</Integrity>
+      <Fingerprint>ykcv08wnxw</Fingerprint>
+      <Integrity>js5pRo8xpIK5xtLQScc+/Z7I0dVfb/b7H2AJxgNBJ3E=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\app.js'))</OriginalItemSpec>
@@ -84,8 +84,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>4tjosne3hq</Fingerprint>
-      <Integrity>uI3Fv0fZEh+H30B2v+WIfhBn0vsgyKbcQJPvfkAx35g=</Integrity>
+      <Fingerprint>3z9no6jcko</Fingerprint>
+      <Integrity>P7KkEcNoPF9C+9jjrjxhy825rGvGkYyUS//mkqg6vu8=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\js\player.js'))</OriginalItemSpec>
@@ -1188,12 +1188,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\lib\jquery\LICENSE.txt'))</OriginalItemSpec>
     </StaticWebAsset>
-    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Music.png'))">
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\music.png'))">
       <SourceType>Package</SourceType>
       <SourceId>Music2.0</SourceId>
       <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
       <BasePath>_content/Music2.0</BasePath>
-      <RelativePath>Music.png</RelativePath>
+      <RelativePath>music.png</RelativePath>
       <AssetKind>All</AssetKind>
       <AssetMode>All</AssetMode>
       <AssetRole>Primary</AssetRole>
@@ -1204,7 +1204,7 @@
       <Integrity>xBpONLLAZVcDQOcZJ/JaKsJsAaxZYwHU762fUzB0g3I=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Music.png'))</OriginalItemSpec>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\music.png'))</OriginalItemSpec>
     </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\Music2.0.b7lf98w7hr.bundle.scp.css'))">
       <SourceType>Package</SourceType>

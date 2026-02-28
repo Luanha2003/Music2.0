@@ -295,6 +295,7 @@ const Player = {
         if (queue) {
             this.queue = queue;
             this.currentIndex = index >= 0 ? index : queue.findIndex(s => s.encodeId === song.encodeId);
+            this.renderQueue();
         }
 
         // Update UI immediately
@@ -490,6 +491,13 @@ const Player = {
 
     _onEnded() {
         this.els.thumb.classList.remove('spinning');
+
+        const ytDiv = document.getElementById('hidden-yt-audio');
+        if (ytDiv && ytDiv.classList.contains('show-pip')) {
+            ytDiv.classList.remove('show-pip');
+            this.els.btnVideo?.classList.remove('active');
+        }
+
         if (this.repeat === 2) {
             // Repeat one
             this.audio.currentTime = 0;
