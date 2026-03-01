@@ -110,4 +110,60 @@ public class ApiController : ControllerBase
         var data = await _zing.GetHubDetail(id);
         return data != null ? Ok(data) : StatusCode(502, new { error = "Lỗi hub detail" });
     }
+
+    [HttpGet("ytfallback")]
+    public async Task<IActionResult> GetYoutubeFallback([FromQuery] string q)
+    {
+        if (string.IsNullOrWhiteSpace(q)) return BadRequest();
+        try
+        {
+            var youtube = new YoutubeExplode.YoutubeClient();
+            YoutubeExplode.Search.VideoSearchResult video = null;
+            await foreach(var v in youtube.Search.GetVideosAsync(q))
+            {
+                video = v;
+                break;
+            }
+            if (video == null) return NotFound();
+            
+            var streamManifest = await youtube.Videos.Streams.GetManifestAsync(video.Id);
+            var streamInfo = streamManifest.GetAudioOnlyStreams().OrderByDescending(s => s.Bitrate).FirstOrDefault();
+            if (streamInfo == null) return NotFound();
+            
+            return Ok(new { url = streamInfo.Url });
+        }
+        catch(Exception ex)
+        {
+            return StatusCode(500, new { error = ex.Message });
+        }
+    }
+
+    [HttpGet("ytsearch")]
+    public async Task<IActionResult> SearchYoutube([FromQuery] string q)
+    {
+        if (string.IsNullOrWhiteSpace(q)) return BadRequest();
+        try
+        {
+            var youtube = new YoutubeExplode.YoutubeClient();
+            var results = new System.Collections.Generic.List<object>();
+            await foreach(var v in youtube.Search.GetVideosAsync(q))
+            {
+                results.Add(new {
+                    id = new { videoId = v.Id.Value },
+                    snippet = new {
+                        title = v.Title,
+                        thumbnails = new {
+                            medium = new { url = System.Linq.Enumerable.FirstOrDefault(v.Thumbnails)?.Url }
+                        }
+                    }
+                });
+                if (results.Count >= 12) break;
+            }
+            return Ok(new { items = results });
+        }
+        catch(Exception ex)
+        {
+            return StatusCode(500, new { error = ex.Message });
+        }
+    }
 }

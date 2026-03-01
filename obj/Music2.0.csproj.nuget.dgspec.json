@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Music2.0\\Music2.0.csproj": {}
+    "C:\\Users\\acer\\Downloads\\Music2.0\\Music2.0.csproj": {}
   },
   "projects": {
-    "E:\\Music2.0\\Music2.0.csproj": {
+    "C:\\Users\\acer\\Downloads\\Music2.0\\Music2.0.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Music2.0\\Music2.0.csproj",
+        "projectUniqueName": "C:\\Users\\acer\\Downloads\\Music2.0\\Music2.0.csproj",
         "projectName": "Music2.0",
-        "projectPath": "E:\\Music2.0\\Music2.0.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "E:\\Music2.0\\obj\\",
+        "projectPath": "C:\\Users\\acer\\Downloads\\Music2.0\\Music2.0.csproj",
+        "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\acer\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -26,7 +26,6 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -43,13 +42,19 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "all"
+          "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.200"
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
+          "dependencies": {
+            "YoutubeExplode": {
+              "target": "Package",
+              "version": "[6.5.7, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -69,7 +74,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100-rc.1.24452.12/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

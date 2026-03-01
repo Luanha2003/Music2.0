@@ -963,14 +963,13 @@ const App = {
 
         const query = encodeURIComponent(keyword + " karaoke");
 
-        const url =
-            `https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=8&type=video&q=${query}&key=${ytapi_key}`;
+        const url = `/api/ytsearch?q=${query}`;
 
         try {
             const res = await fetch(url);
             const data = await res.json();
 
-            if (!data.items) {
+            if (!data.items || data.items.length === 0) {
                 resultDiv.innerHTML = "Không tìm thấy video";
                 return;
             }

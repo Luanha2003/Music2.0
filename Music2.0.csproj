@@ -7,4 +7,8 @@
     <RootNamespace>Music2._0</RootNamespace>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="YoutubeExplode" Version="6.5.7" />
+  </ItemGroup>
+
 </Project>

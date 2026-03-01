@@ -89,7 +89,7 @@ const Player = {
                     height: '1',
                     width: '1',
                     videoId: '',
-                    playerVars: { 'autoplay': 1, 'controls': 0, 'playsinline': 1 },
+                    playerVars: { 'autoplay': 1, 'controls': 0, 'playsinline': 1, 'origin': window.location.origin },
                     events: {
                         'onReady': () => {
                             if (this.ytPlayer.setVolume) this.ytPlayer.setVolume(this.volume * 100);
@@ -330,14 +330,20 @@ const Player = {
             }
 
             if (json.err === 0 && json.data && (json.data['128'] || json.data['320'] || json.data.default)) {
-                const streamUrl = json.data['128'] || json.data['320'] || json.data.default;
+                let streamUrl = json.data['128'] || json.data['320'] || json.data.default;
+
+                // Nâng cấp http lên https để tránh lỗi Mixed Content trên Host
+                if (streamUrl && streamUrl.startsWith('http://')) {
+                    streamUrl = streamUrl.replace('http://', 'https://');
+                }
+
                 this.audio.src = streamUrl;
                 this.audio.play();
                 this.els.thumb.classList.add('spinning');
                 document.title = `${song.title} - ${song.artistsNames} | Music2.0`;
             } else {
-                App.showToast('Đang tìm phiên bản YouTube...');
-                this.isYoutube = true;
+                App.showToast('Đang tìm phiên bản dự phòng...');
+                this.isYoutube = false;
                 this.audio.pause();
 
                 try {
@@ -350,25 +356,35 @@ const Player = {
                         }
                     }
                     const query = encodeURIComponent(song.title + (artistStr ? ' ' + artistStr : '') + ' official audio');
-                    const ytRes = await fetch(`https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=1&type=video&videoCategoryId=10&q=${query}&key=${ytapi_key}`);
-                    const ytJson = await ytRes.json();
-                    if (ytJson.items && ytJson.items.length > 0) {
-                        const videoId = ytJson.items[0].id.videoId;
-                        if (this.ytPlayer && this.ytPlayer.loadVideoById) {
-                            this.ytPlayer.loadVideoById(videoId);
-                            document.title = `${song.title} - ${song.artistsNames} | Music2.0 (YT)`;
+
+                    const fbRes = await fetch(`/api/ytfallback?q=${query}`);
+                    if (fbRes.ok) {
+                        const fbJson = await fbRes.json();
+                        if (fbJson.url) {
+                            this.audio.src = fbJson.url;
+                            this.audio.play();
                             this.els.thumb.classList.add('spinning');
-                            if (this.els.btnVideo) this.els.btnVideo.style.display = 'block';
-                        } else {
-                            App.showToast('Trình duyệt chưa tải xong Youtube Player');
-                            setTimeout(() => this.next(), 1500);
+                            document.title = `${song.title} - ${song.artistsNames} | Music2.0 (Dự phòng)`;
+                            if (this.els.btnVideo) this.els.btnVideo.style.display = 'none';
+
+                            // Cập nhật Media Session cho Mobile lock screen
+                            if ('mediaSession' in navigator) {
+                                navigator.mediaSession.metadata = new MediaMetadata({
+                                    title: song.title,
+                                    artist: song.artistsNames,
+                                    artwork: [
+                                        { src: song.thumbnailM || song.thumbnail || '/music.png', sizes: '512x512', type: 'image/jpeg' }
+                                    ]
+                                });
+                            }
+                            return;
                         }
-                    } else {
-                        App.showToast('Không tìm bài hát!');
-                        setTimeout(() => this.next(), 1500);
                     }
+
+                    App.showToast('Không tìm thấy bài hát!');
+                    setTimeout(() => this.next(), 1500);
                 } catch (e) {
-                    App.showToast('Lỗi tìm kiếm YouTube');
+                    App.showToast('Lỗi tìm kiếm dự phòng!');
                     setTimeout(() => this.next(), 1500);
                 }
             }
