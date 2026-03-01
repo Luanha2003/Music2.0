@@ -304,4 +304,4 @@ C:\Users\acer\Downloads\Music2.0\bin\Debug\net9.0\AngleSharp.dll
 C:\Users\acer\Downloads\Music2.0\bin\Debug\net9.0\YoutubeExplode.dll
 C:\Users\acer\Downloads\Music2.0\obj\Debug\net9.0\compressed\oe3slb2pz1-5b9ydissvo.gz
 C:\Users\acer\Downloads\Music2.0\obj\Debug\net9.0\Music2.0.csproj.Up2Date
-C:\Users\acer\Downloads\Music2.0\obj\Debug\net9.0\compressed\8m9poblnfm-a3rivqpzjv.gz
+C:\Users\acer\Downloads\Music2.0\obj\Debug\net9.0\compressed\8m9poblnfm-a2jugkathb.gz

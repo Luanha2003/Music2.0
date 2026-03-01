@@ -321,9 +321,10 @@ const App = {
         let html = '<div class="fade-in">';
         html += '<div class="section-header"><h2 class="section-title" style="font-size:2rem">Bảng Xếp Hạng</h2></div>';
 
-        if (data.RTChart && data.RTChart.items) {
+        const rtChart = data.RTChart || data.rtChart;
+        if (rtChart && rtChart.items) {
             html += '<div class="song-list stagger">';
-            data.RTChart.items.slice(0, 20).forEach((song, i) => {
+            rtChart.items.slice(0, 20).forEach((song, i) => {
                 html += this._renderChartItem(song, i + 1);
             });
             html += '</div>';
@@ -380,9 +381,9 @@ const App = {
             if (group.items && group.items.length > 0) {
                 html += `<div class="section">
                     <div class="section-header"><h2 class="section-title">${group.title || ''}</h2></div>
-                    <div class="card-grid stagger">`;
-                group.items.slice(0, 8).forEach(item => {
-                    html += this._renderCard(item);
+                    <div class="song-list stagger">`;
+                group.items.forEach((item, i) => {
+                    html += this._renderSongItem(item, i + 1, group.items);
                 });
                 html += '</div></div>';
             }

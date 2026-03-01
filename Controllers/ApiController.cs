@@ -7,73 +7,72 @@ namespace Music2._0.Controllers;
 [ApiController]
 public class ApiController : ControllerBase
 {
-    private readonly ZingMp3Service _zing;
+    private readonly SoundCloudService _soundcloud;
 
-    public ApiController(ZingMp3Service zing)
+    public ApiController(SoundCloudService soundcloud)
     {
-        _zing = zing;
+        _soundcloud = soundcloud;
     }
 
     [HttpGet("home")]
     public async Task<IActionResult> GetHome()
     {
-        var data = await _zing.GetHome();
+        var data = await _soundcloud.GetHome();
         return data != null ? Ok(data) : StatusCode(502, new { error = "Không thể lấy dữ liệu trang chủ" });
     }
 
     [HttpGet("song/{id}")]
     public async Task<IActionResult> GetSong(string id)
     {
-        var data = await _zing.GetSong(id);
+        var data = await _soundcloud.GetSong(id);
         return data != null ? Ok(data) : StatusCode(502, new { error = "Không thể lấy link nhạc" });
     }
 
     [HttpGet("songinfo/{id}")]
     public async Task<IActionResult> GetSongInfo(string id)
     {
-        var data = await _zing.GetSongInfo(id);
+        var data = await _soundcloud.GetSongInfo(id);
         return data != null ? Ok(data) : StatusCode(502, new { error = "Không thể lấy thông tin bài hát" });
     }
 
     [HttpGet("lyrics/{id}")]
     public async Task<IActionResult> GetLyrics(string id)
     {
-        var data = await _zing.GetLyric(id);
-        return data != null ? Ok(data) : StatusCode(502, new { error = "Không thể lấy lời bài hát" });
+        return Ok(new { err = 0, data = new { sentences = Array.Empty<object>() } }); // SoundCloud has no lyrics
     }
 
     [HttpGet("chart")]
     public async Task<IActionResult> GetChart()
     {
-        var data = await _zing.GetChartHome();
+        var data = await _soundcloud.GetCharts();
         return data != null ? Ok(data) : StatusCode(502, new { error = "Không thể lấy bảng xếp hạng" });
     }
 
     [HttpGet("newrelease")]
     public async Task<IActionResult> GetNewRelease()
     {
-        var data = await _zing.GetNewReleaseChart();
+        var data = await _soundcloud.GetNewRelease();
         return data != null ? Ok(data) : StatusCode(502, new { error = "Không thể lấy nhạc mới" });
     }
 
     [HttpGet("top100")]
     public async Task<IActionResult> GetTop100()
     {
-        var data = await _zing.GetTop100();
+        var data = await _soundcloud.GetTop100();
         return data != null ? Ok(data) : StatusCode(502, new { error = "Không thể lấy Top 100" });
     }
 
     [HttpGet("artist/{alias}")]
     public async Task<IActionResult> GetArtist(string alias)
     {
-        var data = await _zing.GetArtist(alias);
+        var data = await _soundcloud.Search(alias);
         return data != null ? Ok(data) : StatusCode(502, new { error = "Không tìm thấy ca sĩ" });
     }
 
     [HttpGet("playlist/{id}")]
     public async Task<IActionResult> GetPlaylist(string id)
     {
-        var data = await _zing.GetPlaylist(id);
+        var data = await _soundcloud.GetSongInfo(id);
         return data != null ? Ok(data) : StatusCode(502, new { error = "Không thể lấy playlist" });
     }
 
@@ -83,31 +82,27 @@ public class ApiController : ControllerBase
         if (string.IsNullOrWhiteSpace(q))
             return BadRequest(new { error = "Vui lòng nhập từ khóa tìm kiếm" });
 
-        var data = await _zing.SearchAll(q);
+        var data = await _soundcloud.Search(q);
         return data != null ? Ok(data) : StatusCode(502, new { error = "Không thể tìm kiếm" });
     }
 
     [HttpGet("suggest")]
     public async Task<IActionResult> Suggest([FromQuery] string q)
     {
-        if (string.IsNullOrWhiteSpace(q))
-            return Ok(new { data = Array.Empty<object>() });
-
-        var data = await _zing.GetSuggestion(q);
-        return data != null ? Ok(data) : StatusCode(502, new { error = "Lỗi gợi ý" });
+        return Ok(new { data = Array.Empty<object>() });
     }
 
     [HttpGet("hubhome")]
     public async Task<IActionResult> GetHubHome()
     {
-        var data = await _zing.GetHubHome();
+        var data = await _soundcloud.GetHome();
         return data != null ? Ok(data) : StatusCode(502, new { error = "Lỗi hub" });
     }
 
     [HttpGet("hubdetail/{id}")]
     public async Task<IActionResult> GetHubDetail(string id)
     {
-        var data = await _zing.GetHubDetail(id);
+        var data = await _soundcloud.GetHome();
         return data != null ? Ok(data) : StatusCode(502, new { error = "Lỗi hub detail" });
     }
 
