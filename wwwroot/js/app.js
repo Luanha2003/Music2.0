@@ -108,6 +108,8 @@ const App = {
             this.navigate('playlist', { id: hash.replace('/playlist/', '') });
         } else if (hash.startsWith('/search/')) {
             this.navigate('search', { q: decodeURIComponent(hash.replace('/search/', '')) });
+        } else if (hash === '/search') {
+            this.navigate('search');
         } else if (hash === '/library') {
             this.navigate('library');
         } else if (hash === '/myplaylist') {
@@ -185,6 +187,7 @@ const App = {
         this._startBannerSlider();
         // Bind card clicks
         this._bindCardClicks();
+        this._bindSongClicks();
     },
 
     _renderBanner(items) {
@@ -391,7 +394,7 @@ const App = {
 
         html += '</div>';
         this.pageContent.innerHTML = html;
-        this._bindCardClicks();
+        this._bindSongClicks();
     },
 
     // ═══════════════════════════════════

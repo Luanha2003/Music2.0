@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bNpq9mQ/sxrVrRUTmE16fWY+GOXcn6kxAOATtThfhYA=",
+  "Hash": "M3FURK/VGKdhU2nVsO7tv32g+i9KnBzVTHL+V61KI3o=",
   "Source": "Music2.0",
   "BasePath": "_content/Music2.0",
   "Mode": "Default",
@@ -416,12 +416,12 @@
       "OriginalItemSpec": "C:\\Users\\acer\\Downloads\\Music2.0\\wwwroot\\lib\\jquery-validation-unobtrusive\\dist\\jquery.validate.unobtrusive.js"
     },
     {
-      "Identity": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\8m9poblnfm-a2jugkathb.gz",
+      "Identity": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\8m9poblnfm-e2sc8ykh6o.gz",
       "SourceId": "Music2.0",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/Music2.0",
-      "RelativePath": "js/app#[.{fingerprint=a2jugkathb}]?.js.gz",
+      "RelativePath": "js/app#[.{fingerprint=e2sc8ykh6o}]?.js.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -430,8 +430,8 @@
       "RelatedAsset": "C:\\Users\\acer\\Downloads\\Music2.0\\wwwroot\\js\\app.js",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "tq4kciqug4",
-      "Integrity": "BYnEjghxndNEGy2iCYgVhQy5UQFkdAyuRMfoEkPZy1g=",
+      "Fingerprint": "9hnfhjnjht",
+      "Integrity": "Y874DZdjczv3tHJT8+LQpSvz/EFbGOaB28MOrg8SIgg=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\acer\\Downloads\\Music2.0\\wwwroot\\js\\app.js"
@@ -1256,12 +1256,12 @@
       "OriginalItemSpec": "C:\\Users\\acer\\Downloads\\Music2.0\\wwwroot\\js\\site.js"
     },
     {
-      "Identity": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\w7ie5scxna-ueuttxe29a.gz",
+      "Identity": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\w7ie5scxna-vo8jkhpylp.gz",
       "SourceId": "Music2.0",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\",
       "BasePath": "_content/Music2.0",
-      "RelativePath": "css/site#[.{fingerprint=ueuttxe29a}]?.css.gz",
+      "RelativePath": "css/site#[.{fingerprint=vo8jkhpylp}]?.css.gz",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Alternative",
@@ -1270,8 +1270,8 @@
       "RelatedAsset": "C:\\Users\\acer\\Downloads\\Music2.0\\wwwroot\\css\\site.css",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "2ga8crjq0g",
-      "Integrity": "4m7ZSqxxQUYmC0bxF2MbpwEJPjFXIQciJlyzogUelQg=",
+      "Fingerprint": "bn1z6o4rmq",
+      "Integrity": "6eayotrgayuqOWNdFMsGjDGRKEPncxU4sOmkrnco6yY=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\acer\\Downloads\\Music2.0\\wwwroot\\css\\site.css"
@@ -1480,8 +1480,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "ueuttxe29a",
-      "Integrity": "NgAMkjc/KtA1KHNsMgaZVU+OUbz4JHW1aC83F7t4y0M=",
+      "Fingerprint": "vo8jkhpylp",
+      "Integrity": "QcWGg5WQ8DWx5YsW2e+rJujFNtFv8LZn6p+2F5/wUHw=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
@@ -1522,8 +1522,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "",
       "AssetTraitValue": "",
-      "Fingerprint": "a2jugkathb",
-      "Integrity": "Anw1Xhsmr11AuKigIkmMfnzTWjhf4D5g9TRr5tf7G4Y=",
+      "Fingerprint": "e2sc8ykh6o",
+      "Integrity": "FmmFCopslogHMsdtqFafhKW7e11C1MuGicLUY3aYTZU=",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\app.js"
@@ -2876,12 +2876,12 @@
   "Endpoints": [
     {
       "Route": "css/site.css",
-      "AssetFile": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\w7ie5scxna-ueuttxe29a.gz",
+      "AssetFile": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\w7ie5scxna-vo8jkhpylp.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000120250120"
+          "Quality": "0.000120076849"
         }
       ],
       "ResponseHeaders": [
@@ -2891,15 +2891,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8315"
+          "Value": "8327"
         },
         {
           "Name": "ETag",
-          "Value": "\"4m7ZSqxxQUYmC0bxF2MbpwEJPjFXIQciJlyzogUelQg=\""
+          "Value": "\"6eayotrgayuqOWNdFMsGjDGRKEPncxU4sOmkrnco6yY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Mar 2026 05:31:06 GMT"
+          "Value": "Sun, 01 Mar 2026 09:17:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2919,13 +2919,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"NgAMkjc/KtA1KHNsMgaZVU+OUbz4JHW1aC83F7t4y0M=\""
+          "Value": "W/\"QcWGg5WQ8DWx5YsW2e+rJujFNtFv8LZn6p+2F5/wUHw=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-NgAMkjc/KtA1KHNsMgaZVU+OUbz4JHW1aC83F7t4y0M="
+          "Value": "sha256-QcWGg5WQ8DWx5YsW2e+rJujFNtFv8LZn6p+2F5/wUHw="
         }
       ]
     },
@@ -2940,7 +2940,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "47036"
+          "Value": "47376"
         },
         {
           "Name": "Content-Type",
@@ -2948,11 +2948,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"NgAMkjc/KtA1KHNsMgaZVU+OUbz4JHW1aC83F7t4y0M=\""
+          "Value": "\"QcWGg5WQ8DWx5YsW2e+rJujFNtFv8LZn6p+2F5/wUHw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Mar 2026 05:31:06 GMT"
+          "Value": "Sun, 01 Mar 2026 09:17:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -2962,13 +2962,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-NgAMkjc/KtA1KHNsMgaZVU+OUbz4JHW1aC83F7t4y0M="
+          "Value": "sha256-QcWGg5WQ8DWx5YsW2e+rJujFNtFv8LZn6p+2F5/wUHw="
         }
       ]
     },
     {
       "Route": "css/site.css.gz",
-      "AssetFile": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\w7ie5scxna-ueuttxe29a.gz",
+      "AssetFile": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\w7ie5scxna-vo8jkhpylp.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -2977,7 +2977,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8315"
+          "Value": "8327"
         },
         {
           "Name": "Content-Type",
@@ -2985,11 +2985,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4m7ZSqxxQUYmC0bxF2MbpwEJPjFXIQciJlyzogUelQg=\""
+          "Value": "\"6eayotrgayuqOWNdFMsGjDGRKEPncxU4sOmkrnco6yY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Mar 2026 05:31:06 GMT"
+          "Value": "Sun, 01 Mar 2026 09:17:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3007,18 +3007,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-4m7ZSqxxQUYmC0bxF2MbpwEJPjFXIQciJlyzogUelQg="
+          "Value": "sha256-6eayotrgayuqOWNdFMsGjDGRKEPncxU4sOmkrnco6yY="
         }
       ]
     },
     {
-      "Route": "css/site.ueuttxe29a.css",
-      "AssetFile": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\w7ie5scxna-ueuttxe29a.gz",
+      "Route": "css/site.vo8jkhpylp.css",
+      "AssetFile": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\w7ie5scxna-vo8jkhpylp.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000120250120"
+          "Quality": "0.000120076849"
         }
       ],
       "ResponseHeaders": [
@@ -3028,15 +3028,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8315"
+          "Value": "8327"
         },
         {
           "Name": "ETag",
-          "Value": "\"4m7ZSqxxQUYmC0bxF2MbpwEJPjFXIQciJlyzogUelQg=\""
+          "Value": "\"6eayotrgayuqOWNdFMsGjDGRKEPncxU4sOmkrnco6yY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Mar 2026 05:31:06 GMT"
+          "Value": "Sun, 01 Mar 2026 09:17:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3056,13 +3056,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"NgAMkjc/KtA1KHNsMgaZVU+OUbz4JHW1aC83F7t4y0M=\""
+          "Value": "W/\"QcWGg5WQ8DWx5YsW2e+rJujFNtFv8LZn6p+2F5/wUHw=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ueuttxe29a"
+          "Value": "vo8jkhpylp"
         },
         {
           "Name": "label",
@@ -3070,12 +3070,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-NgAMkjc/KtA1KHNsMgaZVU+OUbz4JHW1aC83F7t4y0M="
+          "Value": "sha256-QcWGg5WQ8DWx5YsW2e+rJujFNtFv8LZn6p+2F5/wUHw="
         }
       ]
     },
     {
-      "Route": "css/site.ueuttxe29a.css",
+      "Route": "css/site.vo8jkhpylp.css",
       "AssetFile": "C:\\Users\\acer\\Downloads\\Music2.0\\wwwroot\\css\\site.css",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3085,7 +3085,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "47036"
+          "Value": "47376"
         },
         {
           "Name": "Content-Type",
@@ -3093,11 +3093,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"NgAMkjc/KtA1KHNsMgaZVU+OUbz4JHW1aC83F7t4y0M=\""
+          "Value": "\"QcWGg5WQ8DWx5YsW2e+rJujFNtFv8LZn6p+2F5/wUHw=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Mar 2026 05:31:06 GMT"
+          "Value": "Sun, 01 Mar 2026 09:17:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3107,7 +3107,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ueuttxe29a"
+          "Value": "vo8jkhpylp"
         },
         {
           "Name": "label",
@@ -3115,13 +3115,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-NgAMkjc/KtA1KHNsMgaZVU+OUbz4JHW1aC83F7t4y0M="
+          "Value": "sha256-QcWGg5WQ8DWx5YsW2e+rJujFNtFv8LZn6p+2F5/wUHw="
         }
       ]
     },
     {
-      "Route": "css/site.ueuttxe29a.css.gz",
-      "AssetFile": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\w7ie5scxna-ueuttxe29a.gz",
+      "Route": "css/site.vo8jkhpylp.css.gz",
+      "AssetFile": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\w7ie5scxna-vo8jkhpylp.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3130,7 +3130,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8315"
+          "Value": "8327"
         },
         {
           "Name": "Content-Type",
@@ -3138,11 +3138,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"4m7ZSqxxQUYmC0bxF2MbpwEJPjFXIQciJlyzogUelQg=\""
+          "Value": "\"6eayotrgayuqOWNdFMsGjDGRKEPncxU4sOmkrnco6yY=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Mar 2026 05:31:06 GMT"
+          "Value": "Sun, 01 Mar 2026 09:17:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3160,7 +3160,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "ueuttxe29a"
+          "Value": "vo8jkhpylp"
         },
         {
           "Name": "label",
@@ -3168,7 +3168,7 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-4m7ZSqxxQUYmC0bxF2MbpwEJPjFXIQciJlyzogUelQg="
+          "Value": "sha256-6eayotrgayuqOWNdFMsGjDGRKEPncxU4sOmkrnco6yY="
         }
       ]
     },
@@ -3471,13 +3471,13 @@
       ]
     },
     {
-      "Route": "js/app.a2jugkathb.js",
-      "AssetFile": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\8m9poblnfm-a2jugkathb.gz",
+      "Route": "js/app.e2sc8ykh6o.js",
+      "AssetFile": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\8m9poblnfm-e2sc8ykh6o.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000086647604"
+          "Quality": "0.000086565097"
         }
       ],
       "ResponseHeaders": [
@@ -3487,15 +3487,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "11540"
+          "Value": "11551"
         },
         {
           "Name": "ETag",
-          "Value": "\"BYnEjghxndNEGy2iCYgVhQy5UQFkdAyuRMfoEkPZy1g=\""
+          "Value": "\"Y874DZdjczv3tHJT8+LQpSvz/EFbGOaB28MOrg8SIgg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Mar 2026 08:40:47 GMT"
+          "Value": "Sun, 01 Mar 2026 08:56:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3515,13 +3515,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Anw1Xhsmr11AuKigIkmMfnzTWjhf4D5g9TRr5tf7G4Y=\""
+          "Value": "W/\"FmmFCopslogHMsdtqFafhKW7e11C1MuGicLUY3aYTZU=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "a2jugkathb"
+          "Value": "e2sc8ykh6o"
         },
         {
           "Name": "label",
@@ -3529,12 +3529,12 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Anw1Xhsmr11AuKigIkmMfnzTWjhf4D5g9TRr5tf7G4Y="
+          "Value": "sha256-FmmFCopslogHMsdtqFafhKW7e11C1MuGicLUY3aYTZU="
         }
       ]
     },
     {
-      "Route": "js/app.a2jugkathb.js",
+      "Route": "js/app.e2sc8ykh6o.js",
       "AssetFile": "C:\\Users\\acer\\Downloads\\Music2.0\\wwwroot\\js\\app.js",
       "Selectors": [],
       "ResponseHeaders": [
@@ -3544,7 +3544,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "56501"
+          "Value": "56614"
         },
         {
           "Name": "Content-Type",
@@ -3552,11 +3552,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Anw1Xhsmr11AuKigIkmMfnzTWjhf4D5g9TRr5tf7G4Y=\""
+          "Value": "\"FmmFCopslogHMsdtqFafhKW7e11C1MuGicLUY3aYTZU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Mar 2026 08:40:47 GMT"
+          "Value": "Sun, 01 Mar 2026 08:56:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3566,7 +3566,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "a2jugkathb"
+          "Value": "e2sc8ykh6o"
         },
         {
           "Name": "label",
@@ -3574,13 +3574,13 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-Anw1Xhsmr11AuKigIkmMfnzTWjhf4D5g9TRr5tf7G4Y="
+          "Value": "sha256-FmmFCopslogHMsdtqFafhKW7e11C1MuGicLUY3aYTZU="
         }
       ]
     },
     {
-      "Route": "js/app.a2jugkathb.js.gz",
-      "AssetFile": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\8m9poblnfm-a2jugkathb.gz",
+      "Route": "js/app.e2sc8ykh6o.js.gz",
+      "AssetFile": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\8m9poblnfm-e2sc8ykh6o.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3589,7 +3589,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "11540"
+          "Value": "11551"
         },
         {
           "Name": "Content-Type",
@@ -3597,11 +3597,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"BYnEjghxndNEGy2iCYgVhQy5UQFkdAyuRMfoEkPZy1g=\""
+          "Value": "\"Y874DZdjczv3tHJT8+LQpSvz/EFbGOaB28MOrg8SIgg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Mar 2026 08:40:47 GMT"
+          "Value": "Sun, 01 Mar 2026 08:56:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3619,7 +3619,7 @@
       "EndpointProperties": [
         {
           "Name": "fingerprint",
-          "Value": "a2jugkathb"
+          "Value": "e2sc8ykh6o"
         },
         {
           "Name": "label",
@@ -3627,18 +3627,18 @@
         },
         {
           "Name": "integrity",
-          "Value": "sha256-BYnEjghxndNEGy2iCYgVhQy5UQFkdAyuRMfoEkPZy1g="
+          "Value": "sha256-Y874DZdjczv3tHJT8+LQpSvz/EFbGOaB28MOrg8SIgg="
         }
       ]
     },
     {
       "Route": "js/app.js",
-      "AssetFile": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\8m9poblnfm-a2jugkathb.gz",
+      "AssetFile": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\8m9poblnfm-e2sc8ykh6o.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000086647604"
+          "Quality": "0.000086565097"
         }
       ],
       "ResponseHeaders": [
@@ -3648,15 +3648,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "11540"
+          "Value": "11551"
         },
         {
           "Name": "ETag",
-          "Value": "\"BYnEjghxndNEGy2iCYgVhQy5UQFkdAyuRMfoEkPZy1g=\""
+          "Value": "\"Y874DZdjczv3tHJT8+LQpSvz/EFbGOaB28MOrg8SIgg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Mar 2026 08:40:47 GMT"
+          "Value": "Sun, 01 Mar 2026 08:56:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3676,13 +3676,13 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"Anw1Xhsmr11AuKigIkmMfnzTWjhf4D5g9TRr5tf7G4Y=\""
+          "Value": "W/\"FmmFCopslogHMsdtqFafhKW7e11C1MuGicLUY3aYTZU=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Anw1Xhsmr11AuKigIkmMfnzTWjhf4D5g9TRr5tf7G4Y="
+          "Value": "sha256-FmmFCopslogHMsdtqFafhKW7e11C1MuGicLUY3aYTZU="
         }
       ]
     },
@@ -3697,7 +3697,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "56501"
+          "Value": "56614"
         },
         {
           "Name": "Content-Type",
@@ -3705,11 +3705,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Anw1Xhsmr11AuKigIkmMfnzTWjhf4D5g9TRr5tf7G4Y=\""
+          "Value": "\"FmmFCopslogHMsdtqFafhKW7e11C1MuGicLUY3aYTZU=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Mar 2026 08:40:47 GMT"
+          "Value": "Sun, 01 Mar 2026 08:56:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3719,13 +3719,13 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Anw1Xhsmr11AuKigIkmMfnzTWjhf4D5g9TRr5tf7G4Y="
+          "Value": "sha256-FmmFCopslogHMsdtqFafhKW7e11C1MuGicLUY3aYTZU="
         }
       ]
     },
     {
       "Route": "js/app.js.gz",
-      "AssetFile": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\8m9poblnfm-a2jugkathb.gz",
+      "AssetFile": "C:\\Users\\acer\\Downloads\\Music2.0\\obj\\Debug\\net9.0\\compressed\\8m9poblnfm-e2sc8ykh6o.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -3734,7 +3734,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "11540"
+          "Value": "11551"
         },
         {
           "Name": "Content-Type",
@@ -3742,11 +3742,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"BYnEjghxndNEGy2iCYgVhQy5UQFkdAyuRMfoEkPZy1g=\""
+          "Value": "\"Y874DZdjczv3tHJT8+LQpSvz/EFbGOaB28MOrg8SIgg=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Sun, 01 Mar 2026 08:40:47 GMT"
+          "Value": "Sun, 01 Mar 2026 08:56:59 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -3764,7 +3764,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-BYnEjghxndNEGy2iCYgVhQy5UQFkdAyuRMfoEkPZy1g="
+          "Value": "sha256-Y874DZdjczv3tHJT8+LQpSvz/EFbGOaB28MOrg8SIgg="
         }
       ]
     },

@@ -107,7 +107,7 @@ img {
     height: 100vh;
     height: 100dvh;
     width: 100vw;
-    position:relative;
+    position: relative;
 }
 
 /* ── Sidebar ── */
@@ -605,7 +605,7 @@ img {
 
 .song-item {
     display: grid;
-    grid-template-columns: 36px 52px 1fr 140px 80px 36px 36px;
+    grid-template-columns: 36px 52px minmax(0, 1fr) 140px 80px 36px 36px;
     align-items: center;
     gap: 14px;
     padding: 10px 14px;
@@ -670,6 +670,7 @@ img {
 
 .song-info {
     overflow: hidden;
+    min-width: 0;
 }
 
 .song-name {
@@ -1595,7 +1596,7 @@ img {
 /* ── ZingChart Song Item ── */
 .chart-item {
     display: grid;
-    grid-template-columns: 50px 52px 1fr 80px 36px 36px;
+    grid-template-columns: 50px 52px minmax(0, 1fr) 80px 36px 36px;
     align-items: center;
     gap: 14px;
     padding: 10px 14px;
@@ -2252,14 +2253,24 @@ img {
         display: flex;
         flex-direction: column;
         justify-content: center;
+        overflow: hidden;
+        min-width: 0;
     }
 
     .player-song-name {
         font-size: 0.95rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
     }
 
     .player-song-artist {
         font-size: 0.8rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
     }
 
     .player-like-btn {
@@ -2321,11 +2332,11 @@ img {
     }
 
     .song-item {
-        grid-template-columns: 36px 44px 1fr 36px 36px;
+        grid-template-columns: 36px 44px minmax(0, 1fr) 36px 36px;
     }
 
     .chart-item {
-        grid-template-columns: 40px 44px 1fr 36px 36px;
+        grid-template-columns: 40px 44px minmax(0, 1fr) 36px 36px;
     }
 
     .song-album,
