@@ -102,7 +102,7 @@ img {
 /* ── App Layout ── */
 .app-container {
     display: grid;
-    grid-template-columns: var(--sidebar-width) 1fr;
+    grid-template-columns: var(--sidebar-width) minmax(0, 1fr);
     grid-template-rows: minmax(0, 1fr) var(--player-height);
     height: 100vh;
     height: 100dvh;
@@ -850,7 +850,7 @@ img {
     background: var(--bg-player);
     border-top: 1px solid var(--border);
     display: grid;
-    grid-template-columns: calc(var(--sidebar-width) + 40px) 1fr calc(var(--sidebar-width) + 40px);
+    grid-template-columns: calc(var(--sidebar-width) + 40px) minmax(0, 1fr) calc(var(--sidebar-width) + 40px);
     transition: grid-template-columns 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     align-items: center;
     padding: 0 20px;
@@ -2029,7 +2029,7 @@ img {
 
 @media (max-width: 768px) {
     .lyrics-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
         grid-template-rows: auto 1fr;
         height: 90vh;
     }
@@ -2129,7 +2129,7 @@ img {
     }
 
     .app-container {
-        grid-template-columns: 1fr;
+        grid-template-columns: minmax(0, 1fr);
     }
 
     .sidebar {

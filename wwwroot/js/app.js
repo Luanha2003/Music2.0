@@ -383,7 +383,6 @@ const App = {
         groups.forEach(group => {
             if (group.items && group.items.length > 0) {
                 html += `<div class="section">
-                    <div class="section-header"><h2 class="section-title">${group.title || ''}</h2></div>
                     <div class="song-list stagger">`;
                 group.items.forEach((item, i) => {
                     html += this._renderSongItem(item, i + 1, group.items);
@@ -657,8 +656,9 @@ const App = {
                 <!-- Thanh Search (lọc bài hát yêu thích) -->
                 ${likedSongs.length > 0 ? `
                 <div style="flex:1; min-width:200px; display:flex; justify-content:flex-end;">
-                    <div class="search-box" style="margin: 0; max-width: 300px;">
-                        <input type="text" id="filter-liked-input" placeholder="Tìm trong bài hát yêu thích..." oninput="App._filterLikedSongs()" style="padding: 10px 16px; border-radius: 20px; border: none; background: rgba(255,255,255,0.1); color: #fff; width: 100%; outline: none;" />
+                    <div class="search-wrapper" style="margin: 0; max-width: 320px; width: 100%; border-radius: 40px; background: rgba(255, 255, 255, 0.08); display: flex; align-items: center; padding: 2px 16px;">
+                        <svg style="width: 20px; height: 20px; fill: var(--text-muted); margin-right: 10px;" viewBox="0 0 24 24"><path d="M10.533 1.279c-5.18 0-9.407 4.14-9.407 9.279s4.226 9.279 9.407 9.279c2.234 0 4.29-.77 5.907-2.058l4.353 4.353a1 1 0 101.414-1.414l-4.344-4.344a9.157 9.157 0 002.077-5.816c0-5.14-4.226-9.28-9.407-9.28zm-7.407 9.28c0-4.006 3.302-7.28 7.407-7.28s7.407 3.274 7.407 7.28-3.302 7.279-7.407 7.279-7.407-3.273-7.407-7.28z"/></svg>
+                        <input type="text" id="filter-liked-input" placeholder="Tìm bài hát yêu thích của bạn..." oninput="App._filterLikedSongs()" style="padding: 12px 0; border: none; background: transparent; color: #fff; width: 100%; outline: none; font-size: 0.95rem; font-family: inherit;" />
                     </div>
                 </div>` : ''}
             </div>
