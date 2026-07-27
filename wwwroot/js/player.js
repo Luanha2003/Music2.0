@@ -329,6 +329,27 @@ const Player = {
                 this.ytPlayer.stopVideo();
             }
 
+            if (json.err === 0 && json.data && json.data.youtubeVideoId) {
+                this.audio.pause();
+                this.audio.removeAttribute('src');
+                this.isYoutube = true;
+
+                if (this.ytPlayer && this.ytPlayer.loadVideoById) {
+                    this.ytPlayer.loadVideoById(json.data.youtubeVideoId);
+                    if (this.ytPlayer.setVolume) {
+                        this.ytPlayer.setVolume(this.audio.volume * 100);
+                    }
+                    if (this.els.btnVideo) {
+                        this.els.btnVideo.style.display = '';
+                    }
+                    document.title = `${song.title} - ${song.artistsNames} | Music2.0`;
+                    return;
+                }
+
+                this.isYoutube = false;
+                App.showToast('YouTube Player chưa sẵn sàng, vui lòng thử lại');
+            }
+
             if (json.err === 0 && json.data && (json.data['128'] || json.data['320'] || json.data.default)) {
                 let streamUrl = json.data['128'] || json.data['320'] || json.data.default;
 

@@ -266,7 +266,9 @@ const App = {
             </div>
             <div class="song-list stagger">`;
 
-        const songs = (section.items.all || section.items.vPop || section.items.others || section.items || []).slice(0, 10);
+        // The API already caps each provider section, so render the complete
+        // result instead of hiding most of the expanded Vietnamese catalog.
+        const songs = section.items.all || section.items.vPop || section.items.others || section.items || [];
         songs.forEach((song, i) => {
             html += this._renderSongItem(song, i + 1, songs);
         });
@@ -468,7 +470,7 @@ const App = {
             html += `<div class="section">
                 <div class="section-header"><h2 class="section-title">Bài hát</h2></div>
                 <div class="song-list stagger">`;
-            data.songs.slice(0, 10).forEach((song, i) => {
+            data.songs.forEach((song, i) => {
                 html += this._renderSongItem(song, i + 1, data.songs);
             });
             html += '</div></div>';

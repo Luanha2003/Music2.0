@@ -5,6 +5,7 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Music2._0</RootNamespace>
+    <UserSecretsId>Music2.0-019fa287-8d63-73e1-9340-4d88ad00b45e</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
